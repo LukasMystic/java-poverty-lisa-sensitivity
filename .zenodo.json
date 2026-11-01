@@ -1,0 +1,29 @@
+{
+  "upload_type": "software",
+  "title": "How Neighbour Definition and Permutation Resolution Shape Poverty Cluster Detection in Java, Indonesia: code and data",
+  "version": "1.0.0",
+  "creators": [
+    {
+      "name": "Rahayu, Anita",
+      "affiliation": "Bina Nusantara University"
+    },
+    {
+      "name": "Teguh, Stanley Pratama",
+      "affiliation": "Bina Nusantara University",
+      "orcid": "0009-0004-6626-9456"
+    }
+  ],
+  "description": "<p>R code, input data, spatial weights matrices and result files for the paper of the same title (ICoDiT 2026, Springer CCIS). The analysis script rebuilds the 119-unit Java dataset from BPS-Statistics Indonesia tables and OCHA/HDX COD-AB boundaries, constructs five spatial weights schemes, and computes every statistic behind Tables 1 to 3 of the paper, including the seed-stability probe at 9,999 and 99,999 permutations. The five weights matrices are included as GAL files and edge lists.</p><p>Code is MIT licensed. The data files keep the terms of their sources: BPS-Statistics Indonesia statistics, redistributed with attribution, and the OCHA/HDX Indonesia COD-AB boundaries (CC BY-IGO 3.0).</p>",
+  "license": "MIT",
+  "keywords": [
+    "spatial weights",
+    "local indicators of spatial association",
+    "false discovery rate",
+    "permutation tests",
+    "reproducibility",
+    "poverty",
+    "Java",
+    "Indonesia"
+  ],
+  "language": "eng"
+}

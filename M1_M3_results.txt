@@ -1,0 +1,420 @@
+
+==============================================================================
+PAPER 3  -  M1 to M3
+==============================================================================
+run 2026-11-01 19:58:58.43238 | seed 20260826 | R version 4.6.1 (2026-06-24)
+sf/GEOS/GDAL: NA / 3.13.0 / 3.8.5
+idn_admin2: read bundled Java extract idn_admin2_java.gpkg, 122 features
+pseudo-polygons dropped (code ends 88/99): 3
+   bps              name
+1 3399             Hutan
+2 3288      Waduk Cirata
+3 3388 Wadung Kedungombo
+Java admin-2 units after filtering: 119 (expect 119)
+           Var1 Freq
+1        Banten    8
+2 DI Yogyakarta    5
+3   DKI Jakarta    6
+4    Jawa Barat   27
+5   Jawa Tengah   35
+6    Jawa Timur   38
+poverty CSV: 119 Java kab/kota rows (expect 119)
+IPM rows 119 | TPT+TPAK rows 119 (expect 119 each)
+HDI range across 119 units: 67.23 - 89.53
+merged dataset: 119 units, all with geometry
+       Y                X1              X2              X3       
+ Min.   : 2.310   Min.   :1.330   Min.   :67.23   Min.   :60.42  
+ 1st Qu.: 6.085   1st Qu.:3.550   1st Qu.:72.61   1st Qu.:68.06  
+ Median : 8.400   Median :4.590   Median :75.47   Median :71.98  
+ Mean   : 8.558   Mean   :4.912   Mean   :76.52   Mean   :71.77  
+ 3rd Qu.:10.685   3rd Qu.:6.415   3rd Qu.:79.53   3rd Qu.:75.76  
+ Max.   :20.610   Max.   :8.800   Max.   :89.53   Max.   :80.82  
+Y: mean 8.56 median 8.4 sd 3.51 min 2.31 (Kota Depok) max 20.61 (Sampang)
+
+==============================================================================
+VALIDATION vs dataset.xlsx (38 East Java rows)
+==============================================================================
+mismatched cells (|new-ref| > 0.005): Y=0 X1=0 X2=0 X3=0
+VALIDATION PASSED: 0 mismatched cells on Y, X1, X2, X3 across all 38 units
+centroid vs u,v - largest 6 deviations (deg):
+    bps        name   u_ref  v_ref  u_cent v_cent d_deg
+29 3529     Sumenep 113.861 -7.014 114.405 -6.967 0.546
+25 3525      Gresik 112.597 -7.171 112.558 -6.927 0.247
+10 3510  Banyuwangi 114.364 -8.223 114.206 -8.365 0.213
+26 3526   Bangkalan 112.735 -7.047 112.930 -7.044 0.195
+23 3523       Tuban 112.063 -6.896 111.892 -6.953 0.181
+13 3513 Probolinggo 113.414 -7.762 113.321 -7.867 0.140
+wrote java_merged.gpkg and java_merged.csv
+
+==============================================================================
+M1  SPATIAL WEIGHTS
+==============================================================================
+
+-- bare Queen (style W) : ROBUSTNESS VARIANT --
+Neighbour list object:
+Number of regions: 119 
+Number of nonzero links: 522 
+Percentage nonzero weights: 3.68618 
+Average number of links: 4.386555 
+1 region with no links:
+3101
+3 disjoint connected subgraphs
+    k Freq
+1   0    1
+2   1   15
+3   2   10
+4   3   13
+5   4   22
+6   5   20
+7   6   19
+8   7   12
+9   8    3
+10  9    3
+11 11    1
+mean links 4.387 | symmetric TRUE | components 3 (sizes 114,4,1)
+isolated (zero.policy=TRUE):
+   bps             name
+1 3101 Kepulauan Seribu
+not connected to the mainland component (5 units):
+   bps             name     Y component k
+1 3101 Kepulauan Seribu 12.37         1 0
+2 3526        Bangkalan 18.25         3 1
+3 3527          Sampang 20.61         3 2
+4 3528        Pamekasan 12.77         3 2
+5 3529          Sumenep 17.02         3 1
+most-connected:
+    bps     name  k
+7  3201    Bogor 11
+41 3308 Magelang  9
+42 3309 Boyolali  9
+80 3507   Malang  9
+48 3315 Grobogan  8
+
+-- augmented Queen (style W) : PRIMARY --
+Neighbour list object:
+Number of regions: 119 
+Number of nonzero links: 526 
+Percentage nonzero weights: 3.714427 
+Average number of links: 4.420168 
+    k Freq
+1   1   15
+2   2   10
+3   3   14
+4   4   22
+5   5   19
+6   6   20
+7   7   12
+8   8    3
+9   9    3
+10 11    1
+mean links 4.42 (bare 4.387) | symmetric TRUE | isolates 0 | components 1
+=> fully connected, no isolates. Endpoints changing degree:
+   bps               name k_bare k_aug
+1 3101   Kepulauan Seribu      0     1
+2 3175 Kota Jakarta Utara      5     6
+3 3526          Bangkalan      1     2
+4 3578      Kota Surabaya      2     3
+kNN k=4: symmetrised mean links 5.025
+kNN k=5: symmetrised mean links 6.185
+kNN k=6: symmetrised mean links 7.462
+kNN k=4 Gresik -> Tuban(3523), Lamongan(3524), Bangkalan(3526), Sampang(3527)
+kNN k=5 Gresik -> Tuban(3523), Lamongan(3524), Bangkalan(3526), Sampang(3527), Kota Surabaya(3578)
+kNN k=6 Gresik -> Tuban(3523), Lamongan(3524), Bangkalan(3526), Sampang(3527), Pamekasan(3528), Kota Surabaya(3578)
+kNN k=4 Sumenep -> Situbondo(3512), Bangkalan(3526), Sampang(3527), Pamekasan(3528)
+kNN k=5 Sumenep -> Bondowoso(3511), Situbondo(3512), Bangkalan(3526), Sampang(3527), Pamekasan(3528)
+kNN k=6 Sumenep -> Bondowoso(3511), Situbondo(3512), Bangkalan(3526), Sampang(3527), Pamekasan(3528), Kota Probolinggo(3574)
+
+==============================================================================
+M2  GLOBAL AUTOCORRELATION (Moran's I & Geary's C, 9999 perm)
+==============================================================================
+   variable   scheme Moran_I Moran_p Geary_C Geary_p Moran_rank Geary_rank
+1         Y QueenAug  0.4064   1e-04  0.5490   1e-04      10000          1
+2         Y    Queen  0.4836   1e-04  0.4767   1e-04      10000          1
+3         Y     kNN4  0.3814   1e-04  0.6413   1e-04      10000          1
+4         Y     kNN5  0.3590   1e-04  0.6439   1e-04      10000          1
+5         Y     kNN6  0.3360   1e-04  0.6676   1e-04      10000          1
+6        X1 QueenAug  0.7309   1e-04  0.2682   1e-04      10000          1
+7        X1    Queen  0.7214   1e-04  0.2696   1e-04      10000          1
+8        X1     kNN4  0.6221   1e-04  0.3277   1e-04      10000          1
+9        X1     kNN5  0.6137   1e-04  0.3242   1e-04      10000          1
+10       X1     kNN6  0.6041   1e-04  0.3359   1e-04      10000          1
+11       X2 QueenAug  0.4361   1e-04  0.4918   1e-04      10000          1
+12       X2    Queen  0.4758   1e-04  0.4439   1e-04      10000          1
+13       X2     kNN4  0.4135   1e-04  0.6505   1e-04      10000          1
+14       X2     kNN5  0.4023   1e-04  0.6555   1e-04      10000          1
+15       X2     kNN6  0.3933   1e-04  0.6635   1e-04      10000          1
+16       X3 QueenAug  0.6950   1e-04  0.3006   1e-04      10000          1
+17       X3    Queen  0.6939   1e-04  0.3023   1e-04      10000          1
+18       X3     kNN4  0.6174   1e-04  0.3639   1e-04      10000          1
+19       X3     kNN5  0.6232   1e-04  0.3699   1e-04      10000          1
+20       X3     kNN6  0.6249   1e-04  0.3786   1e-04      10000          1
+wrote M2_global.csv
+   variable   scheme Moran_I Moran_p Geary_C Geary_p Moran_rank Geary_rank
+1         Y QueenAug  0.4064   1e-04  0.5490   1e-04      10000          1
+2         Y    Queen  0.4836   1e-04  0.4767   1e-04      10000          1
+6        X1 QueenAug  0.7309   1e-04  0.2682   1e-04      10000          1
+7        X1    Queen  0.7214   1e-04  0.2696   1e-04      10000          1
+11       X2 QueenAug  0.4361   1e-04  0.4918   1e-04      10000          1
+12       X2    Queen  0.4758   1e-04  0.4439   1e-04      10000          1
+16       X3 QueenAug  0.6950   1e-04  0.3006   1e-04      10000          1
+17       X3    Queen  0.6939   1e-04  0.3023   1e-04      10000          1
+
+==============================================================================
+M3  LOCAL STRUCTURE (localmoran_perm + localG_perm, 99999 perm, FDR-BH q=0.05, iseed=20260826)
+==============================================================================
+FDR-count seed stability (LISA on Y, QueenAug):
+              uncorrected FDR_q05
+seed_1                 17       5
+seed_20260826          17       5
+seed_42                17       5
+seed_2024              17       5
+seed_99999             17       5
+seed_7                 18       5
+LISA on Y - significant-unit counts by scheme:
+    scheme n_defined undefined uncorrected FDR_q05
+1 QueenAug       119         0          17       5
+2    Queen       118         1          19       4
+3     kNN4       119         0          25      13
+4     kNN5       119         0          25      14
+5     kNN6       119         0          27      16
+LISA on Y - class breakdown (FDR-significant):
+  QueenAug: 5
+      class Freq
+1 High-High    1
+2   Low-Low    4
+  Queen: 4
+      class Freq
+1 High-High    1
+2   Low-Low    3
+  kNN4: 13
+      class Freq
+1 High-High    3
+2   Low-Low   10
+  kNN5: 14
+      class Freq
+1 High-High    2
+2   Low-Low   12
+  kNN6: 16
+      class Freq
+1 High-High    3
+2   Low-Low   13
+LISA on Y - class breakdown (uncorrected):
+  QueenAug: 17
+      class Freq
+1 High-High    6
+2   Low-Low   11
+  Queen: 19
+      class Freq
+1 High-High    7
+2   Low-Low   12
+  kNN4: 25
+      class Freq
+1 High-High    6
+2  High-Low    2
+3   Low-Low   17
+  kNN5: 25
+      class Freq
+1 High-High    8
+2  High-Low    2
+3   Low-Low   15
+  kNN6: 27
+      class Freq
+1 High-High    7
+2  High-Low    2
+3   Low-Low   18
+QueenAug - every FDR-significant LISA unit on Y:
+      bps                 name        prov     x       Ii      quad   p_raw
+3528 3528            Pamekasan  Jawa Timur 12.77 3.530247 High-High 0.00084
+3276 3276           Kota Depok  Jawa Barat  2.31 2.349799   Low-Low 0.00012
+3171 3171 Kota Jakarta Selatan DKI Jakarta  3.23 2.097854   Low-Low 0.00008
+3172 3172   Kota Jakarta Timur DKI Jakarta  3.94 1.664206   Low-Low 0.00018
+3671 3671       Kota Tangerang      Banten  5.19 1.258021   Low-Low 0.00202
+        p_fdr
+3528 0.024990
+3276 0.007140
+3171 0.007140
+3172 0.007140
+3671 0.048076
+bare Queen FDR units:
+       bps                 name        prov     x       Ii      quad   p_raw
+35281 3528            Pamekasan  Jawa Timur 12.77 3.530247 High-High 0.00046
+32761 3276           Kota Depok  Jawa Barat  2.31 2.349799   Low-Low 0.00018
+31711 3171 Kota Jakarta Selatan DKI Jakarta  3.23 2.097854   Low-Low 0.00006
+31721 3172   Kota Jakarta Timur DKI Jakarta  3.94 1.664206   Low-Low 0.00020
+            p_fdr
+35281 0.013570000
+32761 0.007866667
+31711 0.007080000
+31721 0.007866667
+Gi* (localG_perm, include.self) on Y - hot/cold counts:
+    scheme hot_raw cold_raw hot_fdr cold_fdr
+1 QueenAug       6       11       1        3
+2    Queen       7       12       1        4
+3     kNN4       6       18       3       11
+4     kNN5       8       17       2       12
+5     kNN6       6       20       3       13
+LISA on predictors (QueenAug) - counts:
+  variable uncorrected FDR_q05
+1       X1          38       2
+2       X2          16       3
+3       X3          36      14
+
+==============================================================================
+MADURA SPOTLIGHT - Bangkalan (3526), Sampang (3527), Sumenep (3529)
+==============================================================================
+Bangkalan (3526) Y=18.25 (Java mean 8.56)
+        scheme       Ii      quad   p_raw      p_fdr sig_raw sig_fdr     Gi_z
+3526  QueenAug 2.793263 High-High 0.14890 0.61617379   FALSE   FALSE 2.787468
+35261    Queen 9.545060 High-High 0.00904 0.08205538    TRUE   FALSE 4.413932
+35262     kNN4 1.260744 High-High 0.32670 0.61219284   FALSE   FALSE 2.088757
+35263     kNN5 1.675751 High-High 0.15910 0.39443542   FALSE   FALSE 2.417478
+35264     kNN6 1.082544 High-High 0.29572 0.56475569   FALSE   FALSE 1.984376
+       Gp_raw     Gp_fdr G_sig_fdr
+3526  0.14734 0.62405241     FALSE
+35261 0.00836 0.07652615     FALSE
+35262 0.31880 0.61189032     FALSE
+35263 0.15846 0.39379083     FALSE
+35264 0.29584 0.56526889     FALSE
+  QueenAug nb: Sampang(3527, Y=20.61), Kota Surabaya(3578, Y=3.56)
+  Queen nb: Sampang(3527, Y=20.61)
+Sampang (3527) Y=20.61 (Java mean 8.56)
+        scheme       Ii      quad   p_raw      p_fdr sig_raw sig_fdr     Gi_z
+3527  QueenAug 6.846559 High-High 0.00556 0.06404364    TRUE   FALSE 4.320567
+35271    Queen 6.846559 High-High 0.00560 0.05880333    TRUE   FALSE 4.320567
+35272     kNN4 4.276089 High-High 0.01168 0.08176000    TRUE   FALSE 3.826434
+35273     kNN5 2.952445 High-High 0.04530 0.21562800    TRUE   FALSE 3.224850
+35274     kNN6 1.777842 High-High 0.17072 0.43224851   FALSE   FALSE 2.537780
+       Gp_raw     Gp_fdr G_sig_fdr
+3527  0.00632 0.06837091     FALSE
+35271 0.00558 0.05533500     FALSE
+35272 0.01108 0.07756000     FALSE
+35273 0.04782 0.22762320     FALSE
+35274 0.16796 0.42368958     FALSE
+  QueenAug nb: Bangkalan(3526, Y=18.25), Pamekasan(3528, Y=12.77)
+  Queen nb: Bangkalan(3526, Y=18.25), Pamekasan(3528, Y=12.77)
+Sumenep (3529) Y=17.02 (Java mean 8.56)
+        scheme       Ii      quad   p_raw      p_fdr sig_raw sig_fdr     Gi_z
+3529  QueenAug 2.912436 High-High 0.24608 0.69682667   FALSE   FALSE 2.572738
+35291    Queen 2.912436 High-High 0.24658 0.70266640   FALSE   FALSE 2.572738
+35292     kNN4 4.938491 High-High 0.00022 0.00654500    TRUE    TRUE 4.816234
+35293     kNN5 4.454451 High-High 0.00022 0.00523600    TRUE    TRUE 4.850329
+35294     kNN6 3.381494 High-High 0.00168 0.01348667    TRUE    TRUE 4.192449
+       Gp_raw   Gp_fdr G_sig_fdr
+3529  0.24726 0.705740     FALSE
+35291 0.24686 0.712640     FALSE
+35292 0.00030 0.008925      TRUE
+35293 0.00026 0.006188      TRUE
+35294 0.00152 0.012920      TRUE
+  QueenAug nb: Pamekasan(3528, Y=12.77)
+  Queen nb: Pamekasan(3528, Y=12.77)
+wrote M3_lisaY_all_schemes.csv, M3_lisa_predictors_primary.csv
+
+==============================================================================
+M3b  SPATIAL CORRELOGRAM (augmented Queen nb, Moran's I, lags 1-6)
+==============================================================================
+   variable lag  MoranI       E     sd      z        p sig
+1         Y   1  0.4064 -0.0085 0.0671  6.184 6.27e-10  **
+2         Y   2  0.2116 -0.0085 0.0460  4.782 1.74e-06  **
+3         Y   3  0.0984 -0.0085 0.0399  2.677 7.44e-03  **
+4         Y   4  0.0177 -0.0085 0.0390  0.671 5.02e-01    
+5         Y   5  0.0368 -0.0085 0.0406  1.114 2.65e-01    
+6         Y   6 -0.0096 -0.0085 0.0420 -0.026 9.79e-01    
+7        X1   1  0.7309 -0.0085 0.0674 10.964 5.70e-28  **
+8        X1   2  0.5453 -0.0085 0.0463 11.968 5.23e-33  **
+9        X1   3  0.4570 -0.0085 0.0401 11.595 4.35e-31  **
+10       X1   4  0.4086 -0.0085 0.0392 10.642 1.89e-26  **
+11       X1   5  0.3533 -0.0085 0.0408  8.866 7.61e-19  **
+12       X1   6  0.2818 -0.0085 0.0422  6.872 6.33e-12  **
+13       X2   1  0.4361 -0.0085 0.0673  6.602 4.07e-11  **
+14       X2   2  0.1014 -0.0085 0.0462  2.378 1.74e-02   *
+15       X2   3 -0.0873 -0.0085 0.0401 -1.966 4.92e-02   *
+16       X2   4 -0.0957 -0.0085 0.0391 -2.228 2.59e-02   *
+17       X2   5 -0.0597 -0.0085 0.0408 -1.256 2.09e-01    
+18       X2   6 -0.0171 -0.0085 0.0422 -0.205 8.38e-01    
+19       X3   1  0.6950 -0.0085 0.0675 10.424 1.92e-25  **
+20       X3   2  0.5764 -0.0085 0.0463 12.632 1.41e-36  **
+21       X3   3  0.4787 -0.0085 0.0402 12.126 7.65e-34  **
+22       X3   4  0.4337 -0.0085 0.0392 11.275 1.74e-29  **
+23       X3   5  0.3100 -0.0085 0.0408  7.801 6.16e-15  **
+24       X3   6  0.2031 -0.0085 0.0423  5.006 5.56e-07  **
+wrote M3_correlogram.csv
+
+==============================================================================
+OLS BASELINE + RESIDUAL DIAGNOSTICS
+==============================================================================
+VIF (X1,X2,X3; same for Y and log(Y) models):
+   predictor   VIF
+X1        X1 2.483
+X2        X2 1.198
+X3        X3 2.787
+-- response = Y --
+            Estimate Std. Error  t value Pr(>|t|)
+(Intercept) 37.61783    8.09817  4.64523  0.00001
+X1          -0.37035    0.18851 -1.96464  0.05187
+X2          -0.43423    0.04811 -9.02601  0.00000
+X3           0.08343    0.07313  1.14076  0.25634
+adj R2 0.5421 | resid SE 2.3771 on 115 df
+Shapiro-Wilk resid: W 0.9822 p 0.1174
+resid Moran's I (aug Queen): lm.morantest I 0.2658 z 4.356 p 6.62e-06 | moran.mc I 0.2658 p 1e-04 | paper 1 East Java ref 0.1764
+-- response = log(Y) --
+            Estimate Std. Error   t value Pr(>|t|)
+(Intercept)  5.38855    0.95385   5.64928  0.00000
+X1          -0.02949    0.02220  -1.32823  0.18673
+X2          -0.05705    0.00567 -10.06849  0.00000
+X3           0.01643    0.00861   1.90729  0.05898
+adj R2 0.5979 | resid SE 0.28 on 115 df
+Shapiro-Wilk resid: W 0.9916 p 0.6848
+resid Moran's I (aug Queen): lm.morantest I 0.2601 z 4.27 p 9.787e-06 | moran.mc I 0.2601 p 1e-04 | paper 1 East Java ref 0.1764
+wrote OLS_baseline.csv
+
+==============================================================================
+WEEK-3 DECISION GATE
+==============================================================================
+    scheme unc_total unc_HH unc_LL unc_HL unc_LH fdr_total fdr_HH fdr_LL fdr_HL
+1 QueenAug        17      6     11      0      0         5      1      4      0
+2    Queen        19      7     12      0      0         4      1      3      0
+3     kNN4        25      6     17      2      0        13      3     10      0
+4     kNN5        25      8     15      2      0        14      2     12      0
+5     kNN6        27      7     18      2      0        16      3     13      0
+  fdr_LH
+1      0
+2      0
+3      0
+4      0
+5      0
+PRIMARY (QueenAug) FDR LISA clusters on Y: 5 (1 HH, 4 LL, 0 HL, 0 LH)
+  HH: Pamekasan
+  LL: Kota Jakarta Selatan, Kota Jakarta Timur, Kota Depok, Kota Tangerang
+  Queen: 4 FDR / 19 uncorrected
+  kNN4: 13 FDR / 25 uncorrected
+  kNN5: 14 FDR / 25 uncorrected
+  kNN6: 16 FDR / 27 uncorrected
+  Bangkalan  FDR-sig FALSE (High-High, perm p 0.1489, FDR p 0.616)
+  Sampang    FDR-sig FALSE (High-High, perm p 0.0056, FDR p 0.064)
+  Sumenep    FDR-sig FALSE (High-High, perm p 0.2461, FDR p 0.697)
+GATE: 5 < ~10 (below threshold)
+
+==============================================================================
+LISA CLUSTER MAP (augmented Queen, FDR q=0.05)
+==============================================================================
+wrote M3_LISA_map_augmentedQueen.png
+
+==============================================================================
+PERMUTATION RESOLUTION - FDR count on Y, QueenAug, six seeds
+==============================================================================
+nsim = 9,999:
+              uncorrected FDR_q05
+seed_1                 17       4
+seed_20260826          17       6
+seed_42                17       6
+seed_2024              17       4
+seed_99999             16       5
+seed_7                 17       5
+FDR count range: 9,999 perm 4-6 | 99,999 perm 5-5
+
+==============================================================================
+ADDED LINKS - global Moran's I of Y
+==============================================================================
+         Queen Queen_Suramadu   Queen_Seribu       QueenAug 
+        0.4836         0.4142         0.4758         0.4064 
+drop Queen -> QueenAug 0.0772 | Suramadu alone 0.0694 | QueenAug undirected edges 263

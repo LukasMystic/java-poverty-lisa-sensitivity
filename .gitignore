@@ -1,0 +1,8 @@
+.DS_Store
+.Rhistory
+.RData
+.Rproj.user/
+*.tmp
+# the full 277 MB geodatabase, if downloaded locally (too large for GitHub)
+idn_admin_boundaries.gdb/
+idn_admin_boundaries.gdb.zip

@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper and this archived version."
+title: "How Neighbour Definition and Permutation Resolution Shape Poverty Cluster Detection in Java, Indonesia: code and data"
+type: software
+version: 1.0.0
+date-released: 2026-11-01
+license: MIT
+repository-code: "https://github.com/LukasMystic/java-poverty-lisa-sensitivity"
+authors:
+  - family-names: Rahayu
+    given-names: Anita
+    affiliation: "Computer Science Department, School of Computer Science, Bina Nusantara University"
+  - family-names: Teguh
+    given-names: Stanley Pratama
+    orcid: "https://orcid.org/0009-0004-6626-9456"
+    affiliation: "Computer Science Department, School of Computer Science, Bina Nusantara University"
+keywords:
+  - spatial weights
+  - local indicators of spatial association
+  - false discovery rate
+  - permutation tests
+  - reproducibility
+  - poverty
+  - Java
+  - Indonesia
+preferred-citation:
+  type: conference-paper
+  title: "How Neighbour Definition and Permutation Resolution Shape Poverty Cluster Detection in Java, Indonesia"
+  authors:
+    - family-names: Rahayu
+      given-names: Anita
+    - family-names: Teguh
+      given-names: Stanley Pratama
+      orcid: "https://orcid.org/0009-0004-6626-9456"
+  conference:
+    name: "1st International Conference on Computing and Digital Technology (ICoDiT 2026)"
+  collection-title: "Communications in Computer and Information Science"
+  publisher:
+    name: Springer
+  year: 2026

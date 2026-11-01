@@ -1,0 +1,120 @@
+"bps","adm2_pcode","name","prov","Y","X1","X2","X3"
+3101,"ID3101","Kepulauan Seribu","DKI Jakarta",12.37,7.71,77.52,71.98
+3171,"ID3171","Kota Jakarta Selatan","DKI Jakarta",3.23,5.09,88.51,64.59
+3172,"ID3172","Kota Jakarta Timur","DKI Jakarta",3.94,6.78,85.51,64
+3173,"ID3173","Kota Jakarta Pusat","DKI Jakarta",4.7,6.09,84.45,65.28
+3174,"ID3174","Kota Jakarta Barat","DKI Jakarta",3.91,6.02,85.18,63.71
+3175,"ID3175","Kota Jakarta Utara","DKI Jakarta",6.33,6.02,83.12,67.24
+3201,"ID3201","Bogor","Jawa Barat",6.26,7.69,74.53,64.67
+3202,"ID3202","Sukabumi","Jawa Barat",6.41,7.23,71.13,69.74
+3203,"ID3203","Cianjur","Jawa Barat",9.82,6.17,69.84,68.88
+3204,"ID3204","Bandung","Jawa Barat",6.04,6.68,75.58,67
+3205,"ID3205","Garut","Jawa Barat",9.39,6.54,70.67,68.29
+3206,"ID3206","Tasikmalaya","Jawa Barat",10.15,3.69,70.76,69.23
+3207,"ID3207","Ciamis","Jawa Barat",7.19,4.08,74.33,66.15
+3208,"ID3208","Kuningan","Jawa Barat",10.74,7.59,72.31,69.34
+3209,"ID3209","Cirebon","Jawa Barat",10.23,6.42,73.27,69.28
+3210,"ID3210","Majalengka","Jawa Barat",10.31,3.62,72.37,72.55
+3211,"ID3211","Sumedang","Jawa Barat",8.81,6.08,75.5,65.37
+3212,"ID3212","Indramayu","Jawa Barat",11.02,6.47,71.58,65.07
+3213,"ID3213","Subang","Jawa Barat",9.23,6.8,73,68.91
+3214,"ID3214","Purwakarta","Jawa Barat",7.87,7.54,74.97,66.25
+3215,"ID3215","Karawang","Jawa Barat",7.08,7.99,74.59,65.13
+3216,"ID3216","Bekasi","Jawa Barat",4.36,8.78,77.8,64.33
+3217,"ID3217","Bandung Barat","Jawa Barat",9.87,6.6,71.65,70.57
+3218,"ID3218","Pangandaran","Jawa Barat",8.03,1.91,71.66,79.13
+3271,"ID3271","Kota Bogor","Jawa Barat",5.89,7.95,79.75,65.18
+3272,"ID3272","Kota Sukabumi","Jawa Barat",6.9,8.19,78.23,65.73
+3273,"ID3273","Kota Bandung","Jawa Barat",3.78,7.22,84.66,68.13
+3274,"ID3274","Kota Cirebon","Jawa Barat",8.66,6.41,78.99,69.02
+3275,"ID3275","Kota Bekasi","Jawa Barat",3.96,7.33,84.43,64.1
+3276,"ID3276","Kota Depok","Jawa Barat",2.31,6.52,84.04,62
+3277,"ID3277","Kota Cimahi","Jawa Barat",4.2,8.75,80.85,67.06
+3278,"ID3278","Kota Tasikmalaya","Jawa Barat",10.84,6.43,76.59,66.31
+3279,"ID3279","Kota Banjar","Jawa Barat",5.73,5.26,75.54,69.86
+3301,"ID3301","Cilacap","Jawa Tengah",9.41,7.4,73.45,66.67
+3302,"ID3302","Banyumas","Jawa Tengah",11.15,6.26,75.44,69.87
+3303,"ID3303","Purbalingga","Jawa Tengah",12.55,4.83,71.71,75.35
+3304,"ID3304","Banjarnegara","Jawa Tengah",13.28,5.39,70.61,73.92
+3305,"ID3305","Kebumen","Jawa Tengah",13.58,4.95,73.17,76.17
+3306,"ID3306","Purworejo","Jawa Tengah",10.06,3.72,75.93,74.98
+3307,"ID3307","Wonosobo","Jawa Tengah",13.34,3.99,71.5,75.74
+3308,"ID3308","Magelang","Jawa Tengah",9.9,3.52,73.09,78.12
+3309,"ID3309","Boyolali","Jawa Tengah",8.71,2.97,76.95,77.15
+3310,"ID3310","Klaten","Jawa Tengah",11,3.88,78.68,75.64
+3311,"ID3311","Sukoharjo","Jawa Tengah",6.83,4.32,79.9,70
+3312,"ID3312","Wonogiri","Jawa Tengah",9.59,2.16,73.42,78.66
+3313,"ID3313","Karanganyar","Jawa Tengah",8.48,3.26,78.67,74.81
+3314,"ID3314","Sragen","Jawa Tengah",11.22,3.49,76.38,74.89
+3315,"ID3315","Grobogan","Jawa Tengah",10.63,3.12,72.94,77.58
+3316,"ID3316","Blora","Jawa Tengah",10.58,3.61,72.35,77.63
+3317,"ID3317","Rembang","Jawa Tengah",13.01,2.9,73.4,75.97
+3318,"ID3318","Pati","Jawa Tengah",8.24,3.71,74.98,77.08
+3319,"ID3319","Kudus","Jawa Tengah",6.59,3.23,77.94,75.72
+3320,"ID3320","Jepara","Jawa Tengah",5.79,3.3,74.9,73.49
+3321,"ID3321","Demak","Jawa Tengah",10.87,4.58,75.08,73.04
+3322,"ID3322","Semarang","Jawa Tengah",6.3,3.63,76.4,79.85
+3323,"ID3323","Temanggung","Jawa Tengah",7.78,2.31,72.52,77.77
+3324,"ID3324","Kendal","Jawa Tengah",8.4,4.6,75.07,76.45
+3325,"ID3325","Batang","Jawa Tengah",7.79,5.07,71.7,77.81
+3326,"ID3326","Pekalongan","Jawa Tengah",8.05,3.24,72.71,77.27
+3327,"ID3327","Pemalang","Jawa Tengah",13.32,6.61,69.47,71.97
+3328,"ID3328","Tegal","Jawa Tengah",6.16,7.61,72.36,72.01
+3329,"ID3329","Brebes","Jawa Tengah",14.15,8.07,71.18,71.9
+3371,"ID3371","Kota Magelang","Jawa Tengah",5.68,4.31,82.92,67.69
+3372,"ID3372","Kota Surakarta","Jawa Tengah",7.69,4.5,84.92,70.68
+3373,"ID3373","Kota Salatiga","Jawa Tengah",4.2,3.67,86.23,70.93
+3374,"ID3374","Kota Semarang","Jawa Tengah",3.8,5.65,85.8,72.6
+3375,"ID3375","Kota Pekalongan","Jawa Tengah",6.14,4.83,77.76,75.34
+3376,"ID3376","Kota Tegal","Jawa Tengah",7.28,5.82,77.95,68.8
+3401,"ID3401","Kulon Progo","DI Yogyakarta",14.53,2.14,76.97,78.46
+3402,"ID3402","Bantul","DI Yogyakarta",11.54,3.57,83.03,74.84
+3403,"ID3403","Gunung Kidul","DI Yogyakarta",14.15,2.15,73.13,77
+3404,"ID3404","Sleman","DI Yogyakarta",6.71,4.07,86.35,72.96
+3471,"ID3471","Kota Yogyakarta","DI Yogyakarta",6.14,5.72,89.53,71.03
+3501,"ID3501","Pacitan","Jawa Timur",12.97,1.4,72.26,80.82
+3502,"ID3502","Ponorogo","Jawa Timur",8.86,3.85,74.65,79.91
+3503,"ID3503","Trenggalek","Jawa Timur",10.29,3.86,73.39,77.67
+3504,"ID3504","Tulungagung","Jawa Timur",5.96,4.03,75.88,74.72
+3505,"ID3505","Blitar","Jawa Timur",7.57,4.49,74.43,75.82
+3506,"ID3506","Kediri","Jawa Timur",9.81,4.71,76.09,69.65
+3507,"ID3507","Malang","Jawa Timur",8.78,5,74.45,73.86
+3508,"ID3508","Lumajang","Jawa Timur",8.6,3.08,71.02,69.64
+3509,"ID3509","Jember","Jawa Timur",8.67,3.07,71.57,75.78
+3510,"ID3510","Banyuwangi","Jawa Timur",6.13,3.94,75.17,73.74
+3511,"ID3511","Bondowoso","Jawa Timur",12.2,2.55,71.72,77.28
+3512,"ID3512","Situbondo","Jawa Timur",11.17,3.02,71.87,78.51
+3513,"ID3513","Probolinggo","Jawa Timur",16.31,2.92,71.65,76.72
+3514,"ID3514","Pasuruan","Jawa Timur",8.21,4.22,73.02,74.72
+3515,"ID3515","Sidoarjo","Jawa Timur",4.4,5.75,83.35,69.53
+3516,"ID3516","Mojokerto","Jawa Timur",8.79,3.49,77.46,74.24
+3517,"ID3517","Jombang","Jawa Timur",8.36,3.28,76.37,72.64
+3518,"ID3518","Nganjuk","Jawa Timur",10.06,3.84,75.89,73.19
+3519,"ID3519","Madiun","Jawa Timur",10.4,3.22,75.47,73.97
+3520,"ID3520","Magetan","Jawa Timur",9.14,3.26,77.58,74.7
+3521,"ID3521","Ngawi","Jawa Timur",13.62,2.26,74.43,74.58
+3522,"ID3522","Bojonegoro","Jawa Timur",11.49,3.9,73.74,78.61
+3523,"ID3523","Tuban","Jawa Timur",14.13,3.44,73.15,72.86
+3524,"ID3524","Lamongan","Jawa Timur",12.03,4.29,76.81,74.77
+3525,"ID3525","Gresik","Jawa Timur",9.95,5.47,79.69,67.99
+3526,"ID3526","Bangkalan","Jawa Timur",18.25,5.31,68.15,68.94
+3527,"ID3527","Sampang","Jawa Timur",20.61,2.44,67.23,77.46
+3528,"ID3528","Pamekasan","Jawa Timur",12.77,1.33,71.64,79.85
+3529,"ID3529","Sumenep","Jawa Timur",17.02,1.64,70.54,80
+3571,"ID3571","Kota Kediri","Jawa Timur",6.04,3.76,82.71,70.64
+3572,"ID3572","Kota Blitar","Jawa Timur",6.6,4.28,82.03,75.95
+3573,"ID3573","Kota Malang","Jawa Timur",3.85,5.69,85.55,69.85
+3574,"ID3574","Kota Probolinggo","Jawa Timur",5.69,4.93,78.5,68.44
+3575,"ID3575","Kota Pasuruan","Jawa Timur",6.18,4.59,79.52,75.63
+3576,"ID3576","Kota Mojokerto","Jawa Timur",5.05,4.66,82.35,70.02
+3577,"ID3577","Kota Madiun","Jawa Timur",3.89,4.29,85.12,71.23
+3578,"ID3578","Kota Surabaya","Jawa Timur",3.56,4.84,85.65,70.59
+3579,"ID3579","Kota Batu","Jawa Timur",2.86,3.53,80.35,80.53
+3601,"ID3601","Pandeglang","Banten",8.51,8.8,71.84,62.02
+3602,"ID3602","Lebak","Banten",8.03,7.3,69.24,64.33
+3603,"ID3603","Tangerang","Banten",6.42,5.94,76.74,66.26
+3604,"ID3604","Serang","Banten",4.48,8.73,74.1,67.48
+3671,"ID3671","Kota Tangerang","Banten",5.19,5.88,82.41,64.28
+3672,"ID3672","Kota Cilegon","Banten",3.44,7.41,79.54,61.27
+3673,"ID3673","Kota Serang","Banten",5.51,6.95,77.5,67.61
+3674,"ID3674","Kota Tangerang Selatan","Banten",2.39,4.13,84.81,60.42

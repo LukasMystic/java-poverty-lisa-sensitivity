@@ -1,0 +1,6 @@
+"scheme","units","directed_links","isolates","mean_degree","moran_I_Y"
+"QueenAug",119,526,0,4.42,0.4064
+"Queen",119,522,1,4.387,0.4836
+"kNN4",119,476,0,4,0.3814
+"kNN5",119,595,0,5,0.359
+"kNN6",119,714,0,6,0.336
