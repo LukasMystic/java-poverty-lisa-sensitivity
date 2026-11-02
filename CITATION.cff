@@ -9,6 +9,7 @@ repository-code: "https://github.com/LukasMystic/java-poverty-lisa-sensitivity"
 authors:
   - family-names: Rahayu
     given-names: Anita
+    orcid: "https://orcid.org/0000-0002-7511-1309"
     affiliation: "Computer Science Department, School of Computer Science, Bina Nusantara University"
   - family-names: Teguh
     given-names: Stanley Pratama
@@ -29,6 +30,7 @@ preferred-citation:
   authors:
     - family-names: Rahayu
       given-names: Anita
+      orcid: "https://orcid.org/0000-0002-7511-1309"
     - family-names: Teguh
       given-names: Stanley Pratama
       orcid: "https://orcid.org/0009-0004-6626-9456"
