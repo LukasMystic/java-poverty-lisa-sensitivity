@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-message: "If you use this code or data, please cite the paper and this archived version."
+message: "If you use this code or data, please cite the paper it belongs to and this archived version."
 title: "How Neighbour Definition and Permutation Resolution Shape Poverty Cluster Detection in Java, Indonesia: code and data"
 type: software
-version: 1.0.0
-date-released: 2026-11-01
+version: 1.1.0
+date-released: 2026-11-02
 license: MIT
 repository-code: "https://github.com/LukasMystic/java-poverty-lisa-sensitivity"
 authors:
@@ -40,3 +40,20 @@ preferred-citation:
   publisher:
     name: Springer
   year: 2026
+references:
+  - type: conference-paper
+    title: "Agglomeration Shadows and the Limits of Spillover Aware Poverty Targeting in Java, Indonesia"
+    notes: "The companion paper; its code and results are in paper3b-spillover-targeting/."
+    authors:
+      - family-names: Rahayu
+        given-names: Anita
+        orcid: "https://orcid.org/0000-0002-7511-1309"
+      - family-names: Teguh
+        given-names: Stanley Pratama
+        orcid: "https://orcid.org/0009-0004-6626-9456"
+    conference:
+      name: "1st International Conference on Computing and Digital Technology (ICoDiT 2026)"
+    collection-title: "Communications in Computer and Information Science"
+    publisher:
+      name: Springer
+    year: 2026

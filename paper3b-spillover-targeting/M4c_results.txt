@@ -1,0 +1,133 @@
+
+==============================================================================
+PAPER 3  -  M4c  (SDEM theta robustness; M4b figures)
+==============================================================================
+run 2026-09-01 14:38:53.151235 | seed 20260826 | chosen model (M4b) = SDEM | queen_aug PRIMARY
+Queen snap probe (m -> links / components):
+  snap     0 -> 522 / 3
+  snap   100 -> 522 / 3
+  snap   500 -> 526 / 3
+  snap  1000 -> 532 / 3
+  snap  5000 -> 606 / 1
+
+==============================================================================
+JOB 1  -  SDEM theta / indirect robustness, WELL-SPECIFIED graphs
+==============================================================================
+              graph   n components isolates mean_links
+1         queen_aug 119          1        0       4.42
+2    queen_aug_n118 118          1        0       4.44
+3   queen_bare_n118 118          2        0       4.42
+4          rook_aug 119          1        0       4.39
+5 queen_snap500_aug 119          1        0       4.45
+6              knn4 119          1        0       4.00
+7              knn5 119          1        0       5.00
+8              knn6 119          1        0       6.00
+                                                                                note
+1                                                                            PRIMARY
+2                                   primary minus Kep. Seribu, still fully connected
+3 isolate dropped but NOT augmented: Madura still a separate component (2 subgraphs)
+4                                               Rook contiguity + 2 documented links
+5           Queen(snap 500 m) + 2 documented links; +4 near-touch links vs queen_aug
+6                                                                     k-nearest, k=4
+7                                                                     k-nearest, k=5
+8                                                                     k-nearest, k=6
+queen_bare_n118 has 2 components (Madura detached) - the literal 'isolate
+dropped' graph; the robustness CLAIM rests on the fully-connected graphs.
+W.X1:
+               graph theta_est theta_p indirect_pct indirect_ci_lo_pct
+1          queen_aug  -0.01537 0.67540      -1.5371            -8.7314
+4     queen_aug_n118  -0.02169 0.55250      -2.1694            -9.3274
+7    queen_bare_n118  -0.02421 0.49600      -2.4205            -9.3884
+10          rook_aug  -0.01393 0.70410      -1.3930            -8.5827
+13 queen_snap500_aug  -0.01826 0.62130      -1.8265            -9.0732
+16              knn4  -0.05761 0.17520      -5.7611           -14.0895
+19              knn5  -0.05404 0.25780      -5.4041           -14.7631
+22              knn6  -0.09685 0.08972      -9.6855           -20.8727
+   indirect_ci_hi_pct indirect_p
+1              5.6571    0.67540
+4              4.9886    0.55250
+7              4.5474    0.49600
+10             5.7967    0.70410
+13             5.4203    0.62130
+16             2.5673    0.17520
+19             3.9550    0.25780
+22             1.5017    0.08972
+W.X2:
+               graph theta_est theta_p indirect_pct indirect_ci_lo_pct
+2          queen_aug   0.02144 0.05327       2.1443            -0.0302
+5     queen_aug_n118   0.01781 0.11230       1.7814            -0.4172
+8    queen_bare_n118   0.01457 0.20080       1.4570            -0.7751
+11          rook_aug   0.02231 0.04520       2.2313             0.0477
+14 queen_snap500_aug   0.02038 0.06486       2.0383            -0.1256
+17              knn4   0.01010 0.31040       1.0095            -0.9410
+20              knn5   0.01412 0.23040       1.4120            -0.8954
+23              knn6   0.01877 0.15140       1.8766            -0.6873
+   indirect_ci_hi_pct indirect_p
+2              4.3188    0.05327
+5              3.9801    0.11230
+8              3.6891    0.20080
+11             4.4149    0.04520
+14             4.2022    0.06486
+17             2.9600    0.31040
+20             3.7194    0.23040
+23             4.4405    0.15140
+W.X3:
+               graph theta_est theta_p indirect_pct indirect_ci_lo_pct
+3          queen_aug   0.02537 0.05302       2.5368            -0.0331
+6     queen_aug_n118   0.02274 0.07916       2.2739            -0.2647
+9    queen_bare_n118   0.02129 0.10710       2.1295            -0.4603
+12          rook_aug   0.02541 0.05233       2.5413            -0.0256
+15 queen_snap500_aug   0.02514 0.05658       2.5142            -0.0704
+18              knn4   0.01461 0.36330       1.4608            -1.6889
+21              knn5   0.02470 0.17920       2.4700            -1.1344
+24              knn6   0.01238 0.55870       1.2379            -2.9113
+   indirect_ci_hi_pct indirect_p
+3              5.1066    0.05302
+6              4.8126    0.07916
+9              4.7193    0.10710
+12             5.1082    0.05233
+15             5.0987    0.05658
+18             4.6106    0.36330
+21             6.0745    0.17920
+24             5.3871    0.55870
+
+==============================================================================
+JOB 1  -  ILL-POSED graphs (EXCLUDED from the robustness claim)
+==============================================================================
+  queen_bare_n119 : 3 disconnected subgraphs: Kepulauan Seribu isolated + Madura a closed 4-unit block; a spatial model on a disconnected graph is not estimating the same system
+  idw_band_0_141km : inverse-distance band 0-141 km, mean 30 neighbours: over-dense, known wide-band pathology (X1 indirect -> -21.9 in M4b)
+             graph variable theta_est theta_p indirect_pct indirect_ci_lo_pct
+1  queen_bare_n119       X1  -0.06575 0.01686      -6.5746           -11.9671
+2  queen_bare_n119       X2  -0.00223 0.73790      -0.2229            -1.5281
+3  queen_bare_n119       X3   0.00018 0.97690       0.0183            -1.2161
+4 idw_band_0_141km       X1  -0.21901 0.05645     -21.9009           -44.4037
+5 idw_band_0_141km       X2  -0.01092 0.53410      -1.0924            -4.5363
+6 idw_band_0_141km       X3  -0.04692 0.22600      -4.6920           -12.2876
+  indirect_ci_hi_pct indirect_p
+1            -1.1822    0.01686
+2             1.0824    0.73790
+3             1.2526    0.97690
+4             0.6018    0.05645
+5             2.3515    0.53410
+6             2.9035    0.22600
+
+==============================================================================
+JOB 1  -  VERDICT (a sign/magnitude, b p=0.05 crossing, c CI-width)
+==============================================================================
+W.X1 (7 fully-connected graphs): sign - all 7 | indirect -9.69% .. -1.39% | p 0.0897 .. 0.704 (<0.05 in 0/7) | 95% CI width 14.3-22.4 pp (sd 3.09)
+W.X2 (7 fully-connected graphs): sign + all 7 | indirect 1.01% .. 2.23% | p 0.0452 .. 0.31 (<0.05 in 1/7: rook_aug) | 95% CI width 3.9-5.1 pp (sd 0.37)
+W.X3 (7 fully-connected graphs): sign + all 7 | indirect 1.24% .. 2.54% | p 0.0523 .. 0.559 (<0.05 in 0/7) | 95% CI width 5.1-8.3 pp (sd 1.28)
+(a) W.X2 & W.X3 positive in all 7, indirect ~ +1 to +2.5% - stable to W. W.X1 negative, never near sig.
+(b) W.X2 crosses p=0.05 in 1/7 (~0.045); W.X3 in 0/7 (min 0.0523). Neither robustly significant.
+(c) CI width ~flat: W.X2 3.9-5.1 pp; W.X3 contiguity family ~5.1 pp, widens only under kNN. => power ceiling at n=119, not a W-definition effect.
+
+==============================================================================
+JOB 2  -  rebuild M4 figures from the M4b (SDEM) result
+==============================================================================
+wrote fig_M4b_impacts.png
+wrote fig_M4b_model_comparison.png
+fig_M4_impacts.png / fig_M4_model_comparison.png (M4/SDM) left in place for before/after
+
+==============================================================================
+M4c COMPLETE - STOP
+==============================================================================

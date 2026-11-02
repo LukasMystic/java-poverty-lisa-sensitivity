@@ -1,0 +1,5 @@
+"scenario","theta","spearman_vs_R0","spearman_vs_R1pt","max_abs_rank_move_vs_R0","mean_abs_rank_move_vs_R0","n_moving_gt10_vs_R0"
+"theta=0 (no spillover)",0,1,0.8423,0,0,0
+"theta=CI low",-3e-04,0.9999,0.8397,2,0.22,0
+"theta=point (0.0214)",0.02144,0.8423,1,67,14.54,60
+"theta=CI high",0.04319,0.5236,0.8807,101,27.14,89

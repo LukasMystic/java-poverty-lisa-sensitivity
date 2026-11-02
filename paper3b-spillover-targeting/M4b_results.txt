@@ -1,0 +1,162 @@
+
+==============================================================================
+PAPER 3  -  M4b  SPECIFICATION RE-EXAMINATION
+==============================================================================
+run 2026-09-01 14:38:44.736304 | seed 20260826 | spdep 1.4.2 | spatialreg 1.4.3
+response = log(Y); primary W = augmented Queen
+decision rule -> M4b_decision_rule.txt (74 lines) BEFORE any model below
+
+==============================================================================
+1.  DATA AND WEIGHT SCHEMES
+==============================================================================
+queen_aug 526 links / 1 comp / 0 isolate | queen bare 522 links / 3 subgraphs | IDW band 0-141.2 km mean 30.4 nb
+
+==============================================================================
+2.  SPECIFICATION TESTS AND SIX CANDIDATE MODELS
+==============================================================================
+      test       alias statistic    p_value   verdict
+1    RSerr       LMerr   14.4364 0.00014497 reject H0
+2    RSlag       LMlag    6.6853 0.00972120 reject H0
+3 adjRSerr robustLMerr    8.0019 0.00467290 reject H0
+4 adjRSlag robustLMlag    0.2507 0.61656000      n.s.
+5    SARMA       SARMA   14.6872 0.00064673 reject H0
+six-candidate comparison (residual Moran's I under queen_aug, 9999 sims):
+  model k  logLik   AIC spatial_par par_est     par_p resid_MoranI
+1   OLS 5 -15.332 40.66           -      NA        NA       0.2601
+2   SLX 8  -7.746 31.49           -      NA        NA       0.2382
+3   SAR 6 -11.520 35.04         rho  0.2662 1.685e-03       0.1289
+4   SEM 6  -5.989 23.98      lambda  0.5407 9.572e-10      -0.0171
+5   SDM 9  -1.019 20.04         rho  0.4176 2.450e-05      -0.0038
+6  SDEM 9  -1.268 20.54      lambda  0.4250 1.998e-05      -0.0025
+  resid_Moran_p
+1        0.0001
+2        0.0001
+3        0.0238
+4        0.5461
+5        0.4685
+6        0.4640
+[SLX] AIC 31.49
+            Estimate Std. Error  t value Pr(>|t|)
+(Intercept)  4.20142    1.46761  2.86276  0.00501
+X1           0.01955    0.02708  0.72213  0.47172
+X2          -0.07042    0.00708 -9.94835  0.00000
+X3           0.00339    0.00967  0.35059  0.72655
+lag.X1      -0.05782    0.03830 -1.50978  0.13392
+lag.X2       0.02409    0.01090  2.21046  0.02911
+lag.X3       0.01891    0.01337  1.41449  0.15999
+[SEM] AIC 23.98
+            Estimate Std. Error   z value Pr(>|z|)
+(Intercept)  6.88016    0.96164   7.15463  0.00000
+X1          -0.01247    0.02297  -0.54297  0.58715
+X2          -0.06502    0.00609 -10.68319  0.00000
+X3           0.00313    0.00861   0.36319  0.71646
+[SDEM] AIC 20.54
+            Estimate Std. Error   z value Pr(>|z|)
+(Intercept)  3.65673    1.81820   2.01118  0.04431
+X1           0.00613    0.02352   0.26069  0.79433
+X2          -0.06757    0.00600 -11.26700  0.00000
+X3           0.00239    0.00851   0.28123  0.77854
+lag.X1      -0.01537    0.03671  -0.41877  0.67538
+lag.X2       0.02144    0.01109   1.93275  0.05327
+lag.X3       0.02537    0.01311   1.93475  0.05302
+
+==============================================================================
+3.  APPLYING THE DECISION RULE
+==============================================================================
+                          comparison   chisq df    p_value
+1     SLX vs OLS     (H0: theta = 0) 15.1715  3 0.00167580
+2     SDEM vs SEM    (H0: theta = 0)  9.4408  3 0.02397000
+3    SDEM vs SLX    (H0: lambda = 0) 12.9559  1 0.00031892
+4       SDM vs SLX     (H0: rho = 0) 13.4555  1 0.00024429
+5     SDM vs SAR     (H0: theta = 0) 21.0025  3 0.00010515
+6 SDM vs SEM     (H0: common factor)  9.9403  3 0.01908000
+Hausman on SEM: chisq 16.593 df 4 p 0.0023188 -> REJECT (SEM inadequate)
+R2 robust LMerr p 0.00467 / robust LMlag p 0.617 -> error/local channel; SAR & SDM excluded
+R3 M3 correlogram on Y short-range (I gone by lag 4) -> against a global multiplier
+R4 Hausman on SEM p 0.00232 -> SEM inadequate, need theta -> {SLX, SDEM}
+R5 SLX residual Moran's I 0.2382 p 1e-04 -> SLX not clean -> SDEM iff LR(SDEM vs SLX) rejects (p 0.000319)
+R6 chosen (SDEM) residual Moran's I -0.0025 p 0.464 -> absorbed
+R7 lowest-AIC spatial model SDM (AIC 20.04) - tiebreak only
+>>> M4b CHOSEN MODEL: SDEM  (differs from lowest-AIC SDM, delta 0.5; rule wins, AIC is tiebreak only)
+
+==============================================================================
+4.  CROSS-SCHEME INSTABILITY OF THE INDIRECT EFFECTS
+==============================================================================
+bare Queen minus Kepulauan Seribu: n 118 / 2 subgraphs (Madura still detached) / 0 isolates
+INDIRECT (spillover) effect across weight scenarios [SDEM]:
+                      scenario variable pct_per_unit ci_lo_pct ci_hi_pct
+2             queen_aug_CHOSEN       X1      -1.5371   -8.7314    5.6571
+5             queen_aug_CHOSEN       X2       2.1443   -0.0302    4.3188
+8             queen_aug_CHOSEN       X3       2.5368   -0.0331    5.1066
+11             queen_bare_n119       X1      -6.5746  -11.9671   -1.1822
+14             queen_bare_n119       X2      -0.2229   -1.5281    1.0824
+17             queen_bare_n119       X3       0.0183   -1.2161    1.2526
+20 queen_bare_n118_noKepSeribu       X1      -2.4205   -9.3884    4.5474
+23 queen_bare_n118_noKepSeribu       X2       1.4570   -0.7751    3.6891
+26 queen_bare_n118_noKepSeribu       X3       2.1295   -0.4603    4.7193
+29                        knn4       X1      -5.7611  -14.0895    2.5673
+32                        knn4       X2       1.0095   -0.9410    2.9600
+35                        knn4       X3       1.4608   -1.6889    4.6106
+38                idw_distband       X1     -21.9009  -44.4037    0.6018
+41                idw_distband       X2      -1.0924   -4.5363    2.3515
+44                idw_distband       X3      -4.6920  -12.2876    2.9035
+    p_value
+2  0.675380
+5  0.053267
+8  0.053021
+11 0.016865
+14 0.737900
+17 0.976860
+20 0.495960
+23 0.200780
+26 0.107050
+29 0.175170
+32 0.310380
+35 0.363350
+38 0.056450
+41 0.534130
+44 0.226000
+(4a) X1 indirect: queen_aug -1.537 | bare Queen n119 -6.575 | bare Queen n118 (no Kep. Seribu) -2.421 -> dropping the isolate moves it toward queen_aug (disconnection was inflating it)
+(4b) CI widths under the chosen model (queen_aug):
+  variable   effect pct_per_unit ci_lo_pct ci_hi_pct ci_width_pct    p_value
+1       X1   DIRECT       0.6131   -3.9963    5.2225       9.2188 7.9433e-01
+2       X1 INDIRECT      -1.5371   -8.7314    5.6571      14.3885 6.7538e-01
+3       X1    TOTAL      -0.9241   -8.7023    6.8542      15.5565 8.1588e-01
+4       X2   DIRECT      -6.7565   -7.9319   -5.5812       2.3507 0.0000e+00
+5       X2 INDIRECT       2.1443   -0.0302    4.3188       4.3490 5.3267e-02
+6       X2    TOTAL      -4.6122   -6.7693   -2.4551       4.3142 2.7813e-05
+7       X3   DIRECT       0.2393   -1.4287    1.9073       3.3360 7.7854e-01
+8       X3 INDIRECT       2.5368   -0.0331    5.1066       5.1397 5.3021e-02
+9       X3    TOTAL       2.7761   -0.2904    5.8427       6.1331 7.6009e-02
+mean INDIRECT 95% CI width 7.96 pp -> low power at n=119, not sign-flip fragility per se
+
+==============================================================================
+5.  IMPACTS UNDER THE CHOSEN MODEL (SDEM)
+==============================================================================
+  variable   effect semi_elasticity pct_per_unit       se ci_lo_pct ci_hi_pct
+1       X1   DIRECT        0.006131       0.6131 0.023518   -3.9963    5.2225
+2       X1 INDIRECT       -0.015371      -1.5371 0.036706   -8.7314    5.6571
+3       X1    TOTAL       -0.009241      -0.9241 0.039686   -8.7023    6.8542
+4       X2   DIRECT       -0.067565      -6.7565 0.005997   -7.9319   -5.5812
+5       X2 INDIRECT        0.021443       2.1443 0.011095   -0.0302    4.3188
+6       X2    TOTAL       -0.046122      -4.6122 0.011006   -6.7693   -2.4551
+7       X3   DIRECT        0.002393       0.2393 0.008510   -1.4287    1.9073
+8       X3 INDIRECT        0.025368       2.5368 0.013112   -0.0331    5.1066
+9       X3    TOTAL        0.027761       2.7761 0.015646   -0.2904    5.8427
+     p_value model
+1 7.9433e-01  SDEM
+2 6.7538e-01  SDEM
+3 8.1588e-01  SDEM
+4 0.0000e+00  SDEM
+5 5.3267e-02  SDEM
+6 2.7813e-05  SDEM
+7 7.7854e-01  SDEM
+8 5.3021e-02  SDEM
+9 7.6009e-02  SDEM
+semi-elasticities: percent change in the poverty rate per one-unit change.
+SDEM has no rho: INDIRECT = theta exactly, TOTAL = beta + theta; the spillover is a LOCAL quantity
+
+==============================================================================
+M4b COMPLETE - STOP
+==============================================================================
+chosen specification: SDEM (was SDM in M4)

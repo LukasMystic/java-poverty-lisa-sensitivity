@@ -12,6 +12,15 @@ weighting schemes the number of FDR-significant local Moran clusters of the
 9,999 permutations the corrected count depends on the random seed (4 to 6 across
 six seeds); at 99,999 permutations it is 5 under every seed.
 
+## The companion paper
+
+`paper3b-spillover-targeting/` holds the code and results for the second paper
+from the same project, *Agglomeration Shadows and the Limits of Spillover Aware
+Poverty Targeting in Java, Indonesia* (ICoDiT 2026). It shares this dataset and
+these spatial weights, and adds the spatial econometric model, the impact
+decomposition and the targeting exercise. Its scripts read the two files built
+by `spatial_M1_M3.R` below, so run that first.
+
 ## Reproduce the results
 
 ```sh

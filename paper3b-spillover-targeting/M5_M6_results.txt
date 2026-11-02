@@ -1,0 +1,167 @@
+
+==============================================================================
+PAPER 3  -  M5 TYPOLOGY  +  M6 SPILLOVER-AWARE TARGETING
+==============================================================================
+run 2026-09-01 14:39:21.427074 | seed 20260826
+
+==============================================================================
+M5  TYPOLOGY (continuous; all 119 units)
+==============================================================================
+  quadrant Freq
+1       HH   48
+2       HL    9
+3       LH   25
+4       LL   37
+HDI differential X2 - W.X2: range -8.29 .. 11.1 ; median -0.19
+         hdi_position Freq
+1 in_higher_HDI_nbrhd   62
+2  own_HDI_above_nbrs   57
+        hdi_position
+quadrant in_higher_HDI_nbrhd own_HDI_above_nbrs Sum
+     HH                   35                 13  48
+     HL                    9                  0   9
+     LH                    5                 20  25
+     LL                   13                 24  37
+     Sum                  62                 57 119
+shadow requires W.X2 > mean(X2) = 76.52 (median(X2) = 75.47 would be more permissive; pop-weighted mean not computable). 34 units reclassified shadow -> lagging vs the old sign-only rule.
+initial type counts:
+                  type Freq
+1 Agglomeration shadow   10
+2       Lagging region   47
+3      Prosperous core   37
+4     Sheltered fringe   25
+no type has < 5 members; no merge
+final typology:
+                  type Freq
+1 Agglomeration shadow   10
+2       Lagging region   47
+3      Prosperous core   37
+4     Sheltered fringe   25
+per-type means (WX2 = mean neighbourhood HDI; Java mean HDI 76.52 - the shadow type's WX2 must be above this):
+                  type  n     Y   X1    X2    X3   WX2 hdi_diff
+1 Agglomeration shadow 10 10.95 4.00 76.14 74.16 78.94    -2.80
+2       Lagging region 47 11.58 4.41 73.21 73.61 73.92    -0.71
+3      Prosperous core 37  5.58 6.28 79.39 67.98 77.23     2.16
+4     Sheltered fringe 25  6.33 4.20 78.64 72.96 75.13     3.51
+        type
+quadrant Agglomeration shadow Lagging region Prosperous core Sheltered fringe
+     HH                     5             43               0                0
+     HL                     5              4               0                0
+     LH                     0              0               0               25
+     LL                     0              0              37                0
+     Sum                   10             47              37               25
+        type
+quadrant Sum
+     HH   48
+     HL    9
+     LH   25
+     LL   37
+     Sum 119
+wrote M5_typology.csv, M5_crosstab.csv
+
+==============================================================================
+M5  SANITY CHECK - the 5 FDR-significant LISA units
+==============================================================================
+   bps                 name lisa_class            type quad hdi_diff
+4 3528            Pamekasan  High-High  Lagging region   HH    2.755
+1 3171 Kota Jakarta Selatan    Low-Low Prosperous core   LL    4.110
+2 3172   Kota Jakarta Timur    Low-Low Prosperous core   LL    1.785
+3 3276           Kota Depok    Low-Low Prosperous core   LL    0.482
+5 3671       Kota Tangerang    Low-Low Prosperous core   LL   -1.400
+coherent (4 LL -> Prosperous core, HH -> poverty-side)? TRUE
+
+==============================================================================
+M5  MAP - fig_M5_typology.png
+==============================================================================
+wrote fig_M5_typology.png
+
+==============================================================================
+M6  TARGETING - net regional benefit of a +1 HDI unit in regency i
+==============================================================================
+SDEM homogeneous impacts on log(Y): direct b = -0.06756 ; theta (W.X2) = +0.02144 ; 95% CI [-3e-04, 0.04319] (p = 0.053)
+impacts homogeneous (no rho) -> nothing to rank by effect size; net_i varies
+only through the neighbourhood (w_ji = 1/k_j, j's row weight on i)
+Spearman(R0, R1) = 0.8423 -> the spillover correction re-orders the ranking (the divergence is the contribution)
+top 10 PROMOTED by the spillover-aware ranking (higher priority under R1):
+              name        prov             type    Y k    net R0_rank_by_Y
+25      Kota Bogor  Jawa Barat  Prosperous core 5.89 1 0.3858           93
+26   Kota Sukabumi  Jawa Barat  Prosperous core 6.90 1 0.4318           75
+107  Kota Pasuruan  Jawa Timur  Prosperous core 6.18 1 0.3882           85
+63   Kota Magelang Jawa Tengah Sheltered fringe 5.68 1 0.3602           97
+118    Kota Serang      Banten  Prosperous core 5.51 1 0.3531           98
+103    Kota Kediri  Jawa Timur Sheltered fringe 6.04 1 0.3730           90
+64  Kota Surakarta Jawa Tengah  Prosperous core 7.69 3 0.4484           70
+108 Kota Mojokerto  Jawa Timur Sheltered fringe 5.05 1 0.3176          100
+112     Pandeglang      Banten  Prosperous core 8.51 2 0.5213           58
+104    Kota Blitar  Jawa Timur  Prosperous core 6.60 1 0.4053           78
+    R1_rank_by_net rank_change_R0_minus_R1
+25              54                      39
+26              43                      32
+107             53                      32
+63              65                      32
+118             66                      32
+103             59                      31
+64              42                      28
+108             72                      28
+112             31                      27
+104             51                      27
+top 10 DEMOTED (lower priority under R1):
+                  name          prov                 type     Y  k    net
+101          Pamekasan    Jawa Timur       Lagging region 12.77  2 0.2769
+41            Magelang   Jawa Tengah Agglomeration shadow  9.90  9 0.2273
+80              Malang    Jawa Timur       Lagging region  8.78  9 0.2204
+13              Ciamis    Jawa Barat     Sheltered fringe  7.19  7 0.1027
+15             Cirebon    Jawa Barat       Lagging region 10.23  5 0.3129
+75            Ponorogo    Jawa Timur       Lagging region  8.86  7 0.2668
+89           Mojokerto    Jawa Timur Agglomeration shadow  8.79  8 0.2565
+72              Sleman DI Yogyakarta     Sheltered fringe  6.71  7 0.0956
+6   Kota Jakarta Utara   DKI Jakarta      Prosperous core  6.33  6 0.0680
+7                Bogor    Jawa Barat      Prosperous core  6.26 11 0.0413
+    R0_rank_by_Y R1_rank_by_net rank_change_R0_minus_R1
+101           16             83                     -67
+41            41             91                     -50
+80            53             93                     -40
+13            73            112                     -39
+15            36             73                     -37
+75            50             86                     -36
+89            52             88                     -36
+72            77            113                     -36
+6             82            116                     -34
+7             84            117                     -33
+direction: DEMOTES high-poverty units with many/poor neighbours (positive HDI spillover makes helping them 'cost' the neighbourhood); PROMOTES weakly-connected enclave cities (k=1-2)
+
+==============================================================================
+M6  SENSITIVITY - theta = 0, point, 95% CI bounds
+==============================================================================
+                scenario    theta spearman_vs_R0 spearman_vs_R1pt
+1 theta=0 (no spillover)  0.00000         1.0000           0.8423
+2           theta=CI low -0.00030         0.9999           0.8397
+3   theta=point (0.0214)  0.02144         0.8423           1.0000
+4          theta=CI high  0.04319         0.5236           0.8807
+  max_abs_rank_move_vs_R0 mean_abs_rank_move_vs_R0 n_moving_gt10_vs_R0
+1                       0                     0.00                   0
+2                       2                     0.22                   0
+3                      67                    14.54                  60
+4                     101                    27.14                  89
+theta = 0 makes net_i = b*Y_i -> R1(theta=0) == R0 exactly (Spearman 1)
+top-10 priority list under each theta scenario:
+  [theta=0 (no spillover)]  Sampang > Bangkalan > Sumenep > Probolinggo > Kulon Progo > Brebes > Gunung Kidul > Tuban > Ngawi > Kebumen
+  [theta=CI low]  Sampang > Bangkalan > Sumenep > Probolinggo > Kulon Progo > Brebes > Gunung Kidul > Tuban > Ngawi > Kebumen
+  [theta=point (0.0214)]  Sampang > Sumenep > Bangkalan > Kulon Progo > Kepulauan Seribu > Gunung Kidul > Pacitan > Tuban > Pemalang > Rembang
+  [theta=CI high]  Sumenep > Kepulauan Seribu > Bangkalan > Sampang > Kulon Progo > Kota Tasikmalaya > Pacitan > Rembang > Gunung Kidul > Pemalang
+stability across the theta CI: max single-unit move vs R0 = 101 places; units moving > 10 places 0-89 of 119
+>>> ranking NOT stable across the theta CI - report the FRAMEWORK and DIRECTION, not a league table
+
+==============================================================================
+M6  RATE vs HEADCOUNT
+==============================================================================
+NO headcount/population column in code/ -> M6 run in RATES ONLY; headcount
+ranking PENDING. A rate ranking treats Kota Depok's 2.31% (large pop) and
+Sampang's 20.61% (small pop) as the same policy quantity. If wanted, the
+input is BPS 'Jumlah Penduduk Miskin (Ribu Jiwa) Menurut Kabupaten/Kota'.
+Nothing downloaded in this run.
+
+==============================================================================
+M5 + M6 COMPLETE - STOP
+==============================================================================
+M6 framing (ranking the paper stands behind vs illustrative demo) = Anita's call

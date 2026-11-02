@@ -1,0 +1,6 @@
+"test","alias","statistic","df","p_value","verdict"
+"RSerr","LMerr",14.4364,1,0.00014497,"reject H0"
+"RSlag","LMlag",6.6853,1,0.0097212,"reject H0"
+"adjRSerr","robustLMerr",8.0019,1,0.0046729,"reject H0"
+"adjRSlag","robustLMlag",0.2507,1,0.61656,"n.s."
+"SARMA","SARMA",14.6872,2,0.00064673,"reject H0"

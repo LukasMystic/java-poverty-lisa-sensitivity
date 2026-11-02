@@ -1,0 +1,74 @@
+M4b DECISION RULE  -  written before fitting SLX or recomputing any estimate
+===========================================================================
+
+FRAMING. We are choosing the specification the diagnostics and the data
+structure support. We are NOT trying to make the indirect effects significant;
+under any specification we expect them to stay weak, and that is acceptable.
+If this rule and the p-values / AIC point different ways, the RULE wins and the
+disagreement is stated explicitly.
+
+CANDIDATE SET: OLS, SLX, SAR, SEM, SDM, SDEM.
+  SLX  : lm(logY ~ X + WX)                 - local spillovers, OLS, no rho/lambda
+  SAR  : global lag of y (rho)
+  SEM  : spatial error (lambda)
+  SDM  : SAR + WX  (global multiplier + local-X)
+  SDEM : SEM + WX  (spatial error + local-X, NO global multiplier)
+
+APPLY IN ORDER:
+
+R1. Spatial dependence present at all?
+    If neither LMerr nor LMlag rejects at 0.05 -> OLS. Otherwise continue.
+
+R2. Which channel, per the ROBUST LM tests (each conditions on the other)?
+    - robust LMerr rejects & robust LMlag does NOT -> ERROR / LOCAL channel.
+      Global-lag models (SAR, SDM) are NOT supported by the score tests,
+      regardless of how rho behaves once forced into the model. Restrict the
+      primary candidates to {SEM, SLX, SDEM}.
+    - robust LMlag rejects & robust LMerr does NOT -> GLOBAL-LAG channel.
+      Primary candidates {SAR, SDM}.
+    - both robust tests reject -> keep {SDM, SDEM}; let R4/R5 separate them.
+    - neither robust test rejects -> fall back to non-robust LM + AIC; note it.
+
+R3. Local vs global, cross-checked against the M3 correlogram.
+    If Moran's I on Y has decayed to non-significance by lag 3-4 (short-range),
+    that is the signature of LOCAL spillovers and counts AGAINST a global
+    multiplier (rho). Short-range correlogram + R2 = ERROR/LOCAL  =>  exclude
+    SAR and SDM from the primary set.
+
+R4. Is plain SEM adequate?
+    Hausman.test on SEM: if it REJECTS (SEM betas inconsistent with OLS), SEM is
+    inadequate -> the model needs local-X (theta) terms -> choose among
+    {SLX, SDEM}. If Hausman does NOT reject AND no theta LR test rejects -> SEM.
+
+R5. SLX vs SDEM  (SLX is nested in SDEM under lambda = 0):
+    - Fit SLX by OLS; test its residuals with moran.mc (9999) under queen_aug.
+    - SLX residuals NOT significantly autocorrelated (p >= 0.05): SLX absorbs the
+      dependence alone -> CHOOSE SLX (Elhorst: SLX is the natural, most
+      parsimonious starting point when spillovers are local).
+    - SLX residuals STILL significantly autocorrelated: SLX insufficient ->
+      CHOOSE SDEM, provided LR(SDEM vs SLX) rejects lambda = 0. If that LR does
+      not reject, keep SLX.
+
+R6. Residual absorption is NECESSARY. The chosen model's residuals must show no
+    significant spatial autocorrelation (moran.mc, 9999, p >= 0.05). If the
+    R1-R5 choice fails this, escalate to the smallest superset that passes and
+    flag that a higher-order / combined spec may be needed.
+
+R7. AIC is a TIEBREAK ONLY - to separate two models R1-R6 leave equally
+    admissible. It never overturns R1-R6.
+
+PRE-REGISTERED EXPECTATION. R2 + R3 point to the error/local family; R4 (Hausman
+already rejected SEM in M4, p = 0.0023) forces theta terms; so the choice is
+SLX vs SDEM, decided by R5 (whether SLX's own residuals are clean). SDM is
+expected to be EXCLUDED by R2/R3 despite its significant rho and lowest AIC.
+
+WHAT WOULD CHANGE THE OUTCOME:
+  - robust LMlag significant & robust LMerr not  -> R2 admits SAR/SDM, drops
+    the error family.
+  - correlogram on Y still significant at lag 5-6 -> R3 no longer argues against
+    a global multiplier.
+  - Hausman does NOT reject SEM and no theta LR rejects -> R4 selects plain SEM.
+  - SLX residuals come back clean -> R5 selects SLX over SDEM even though SDEM
+    will have the better AIC.
+
+Written: 2026-09-01 14:38:44.736961

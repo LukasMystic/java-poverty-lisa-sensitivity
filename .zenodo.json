@@ -1,7 +1,7 @@
 {
   "upload_type": "software",
   "title": "How Neighbour Definition and Permutation Resolution Shape Poverty Cluster Detection in Java, Indonesia: code and data",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "creators": [
     {
       "name": "Rahayu, Anita",
@@ -14,7 +14,7 @@
       "orcid": "0009-0004-6626-9456"
     }
   ],
-  "description": "<p>R code, input data, spatial weights matrices and result files for the paper of the same title (ICoDiT 2026, Springer CCIS). The analysis script rebuilds the 119-unit Java dataset from BPS-Statistics Indonesia tables and OCHA/HDX COD-AB boundaries, constructs five spatial weights schemes, and computes every statistic behind Tables 1 to 3 of the paper, including the seed-stability probe at 9,999 and 99,999 permutations. The five weights matrices are included as GAL files and edge lists.</p><p>Code is MIT licensed. The data files keep the terms of their sources: BPS-Statistics Indonesia statistics, redistributed with attribution, and the OCHA/HDX Indonesia COD-AB boundaries (CC BY-IGO 3.0).</p>",
+  "description": "<p>R code, input data, spatial weights matrices and result files for the paper of the same title (ICoDiT 2026, Springer CCIS). The analysis script rebuilds the 119-unit Java dataset from BPS-Statistics Indonesia tables and OCHA/HDX COD-AB boundaries, constructs five spatial weights schemes, and computes every statistic behind Tables 1 to 3 of the paper, including the seed-stability probe at 9,999 and 99,999 permutations. The five weights matrices are included as GAL files and edge lists.</p><p>Code is MIT licensed. The data files keep the terms of their sources: BPS-Statistics Indonesia statistics, redistributed with attribution, and the OCHA/HDX Indonesia COD-AB boundaries (CC BY-IGO 3.0).</p><p>Version 1.1.0 adds <code>paper3b-spillover-targeting/</code>: the R code, the written model-selection rule and the result files for the companion paper from the same project, <em>Agglomeration Shadows and the Limits of Spillover Aware Poverty Targeting in Java, Indonesia</em> (ICoDiT 2026). That paper shares this dataset and these spatial weights, and adds the spatial Durbin error model, the impact decomposition, the robustness checks across eight weighting schemes and the spillover-aware targeting exercise.</p>",
   "license": "MIT",
   "keywords": [
     "spatial weights",
@@ -24,7 +24,11 @@
     "reproducibility",
     "poverty",
     "Java",
-    "Indonesia"
+    "Indonesia",
+    "spatial econometrics",
+    "spatial Durbin error model",
+    "impact decomposition",
+    "geographic targeting"
   ],
   "language": "eng"
 }

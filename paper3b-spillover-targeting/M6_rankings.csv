@@ -1,0 +1,120 @@
+"bps","name","prov","type","Y","k","own_gain","nbr_loss","net","R0_rank_by_Y","R1_rank_by_net","rank_change_R0_minus_R1"
+3527,"Sampang","Jawa Timur","Lagging region",20.61,2,1.3925,0.3326,1.0599,1,1,0
+3529,"Sumenep","Jawa Timur","Lagging region",17.02,1,1.15,0.1369,1.013,3,2,1
+3526,"Bangkalan","Jawa Timur","Lagging region",18.25,2,1.2331,0.2464,0.9866,2,3,-1
+3401,"Kulon Progo","DI Yogyakarta","Agglomeration shadow",14.53,4,0.9817,0.1599,0.8218,5,4,1
+3101,"Kepulauan Seribu","DKI Jakarta","Agglomeration shadow",12.37,1,0.8358,0.0226,0.8132,18,5,13
+3403,"Gunung Kidul","DI Yogyakarta","Agglomeration shadow",14.15,5,0.956,0.1883,0.7678,6,6,0
+3501,"Pacitan","Jawa Timur","Lagging region",12.97,3,0.8763,0.135,0.7414,15,7,8
+3523,"Tuban","Jawa Timur","Lagging region",14.13,4,0.9547,0.2176,0.7371,8,8,0
+3327,"Pemalang","Jawa Tengah","Lagging region",13.32,4,0.9,0.169,0.731,12,9,3
+3317,"Rembang","Jawa Tengah","Lagging region",13.01,3,0.879,0.1489,0.7301,14,10,4
+3305,"Kebumen","Jawa Tengah","Lagging region",13.58,5,0.9175,0.2052,0.7123,10,11,-1
+3329,"Brebes","Jawa Tengah","Lagging region",14.15,6,0.956,0.264,0.6921,6,12,-6
+3513,"Probolinggo","Jawa Timur","Lagging region",16.31,7,1.102,0.4255,0.6765,4,13,-9
+3278,"Kota Tasikmalaya","Jawa Barat","Lagging region",10.84,2,0.7324,0.0583,0.6741,29,14,15
+3521,"Ngawi","Jawa Timur","Lagging region",13.62,7,0.9202,0.2575,0.6628,9,15,-6
+3303,"Purbalingga","Jawa Tengah","Lagging region",12.55,4,0.8479,0.1875,0.6604,17,16,1
+3314,"Sragen","Jawa Tengah","Lagging region",11.22,4,0.7581,0.1169,0.6411,23,17,6
+3304,"Banjarnegara","Jawa Tengah","Lagging region",13.28,6,0.8973,0.2685,0.6288,13,18,-5
+3307,"Wonosobo","Jawa Tengah","Lagging region",13.34,7,0.9013,0.2944,0.607,11,19,-8
+3511,"Bondowoso","Jawa Timur","Lagging region",12.2,4,0.8243,0.2201,0.6042,19,20,-1
+3212,"Indramayu","Jawa Barat","Lagging region",11.02,4,0.7446,0.1452,0.5994,26,21,5
+3512,"Situbondo","Jawa Timur","Lagging region",11.17,3,0.7547,0.1592,0.5955,24,22,2
+3524,"Lamongan","Jawa Timur","Lagging region",12.03,5,0.8128,0.2177,0.5951,20,23,-3
+3310,"Klaten","Jawa Tengah","Lagging region",11,5,0.7432,0.15,0.5932,27,24,3
+3321,"Demak","Jawa Tengah","Agglomeration shadow",10.87,5,0.7344,0.1493,0.5852,28,25,3
+3402,"Bantul","DI Yogyakarta","Lagging region",11.54,4,0.7797,0.225,0.5547,21,26,-5
+3503,"Trenggalek","Jawa Timur","Lagging region",10.29,3,0.6952,0.1454,0.5498,35,27,8
+3525,"Gresik","Jawa Timur","Agglomeration shadow",9.95,4,0.6723,0.1242,0.5481,40,28,12
+3208,"Kuningan","Jawa Barat","Lagging region",10.74,5,0.7256,0.1821,0.5435,30,29,1
+3274,"Kota Cirebon","Jawa Barat","Lagging region",8.66,1,0.5851,0.0439,0.5412,56,30,26
+3601,"Pandeglang","Banten","Prosperous core",8.51,2,0.575,0.0537,0.5213,58,31,27
+3205,"Garut","Jawa Barat","Lagging region",9.39,4,0.6344,0.1214,0.5131,47,32,15
+3518,"Nganjuk","Jawa Timur","Lagging region",10.06,6,0.6797,0.19,0.4897,38,33,5
+3217,"Bandung Barat","Jawa Barat","Lagging region",9.87,6,0.6669,0.1774,0.4895,42,34,8
+3519,"Madiun","Jawa Timur","Agglomeration shadow",10.4,6,0.7027,0.2144,0.4883,33,35,-2
+3306,"Purworejo","Jawa Tengah","Lagging region",10.06,4,0.6797,0.2006,0.4791,38,36,2
+3203,"Cianjur","Jawa Barat","Lagging region",9.82,6,0.6635,0.1844,0.4791,43,37,6
+3522,"Bojonegoro","Jawa Timur","Lagging region",11.49,7,0.7763,0.3099,0.4665,22,38,-16
+3508,"Lumajang","Jawa Timur","Lagging region",8.6,3,0.5811,0.1174,0.4637,57,39,18
+3210,"Majalengka","Jawa Barat","Lagging region",10.31,6,0.6966,0.2388,0.4578,34,40,-6
+3218,"Pangandaran","Jawa Barat","Sheltered fringe",8.03,3,0.5425,0.0871,0.4554,65,41,24
+3372,"Kota Surakarta","Jawa Tengah","Prosperous core",7.69,3,0.5196,0.0711,0.4484,70,42,28
+3272,"Kota Sukabumi","Jawa Barat","Prosperous core",6.9,1,0.4662,0.0344,0.4318,75,43,32
+3315,"Grobogan","Jawa Tengah","Lagging region",10.63,8,0.7182,0.2946,0.4236,31,44,-13
+3520,"Magetan","Jawa Timur","Lagging region",9.14,6,0.6175,0.208,0.4096,49,45,4
+3323,"Temanggung","Jawa Tengah","Sheltered fringe",7.78,4,0.5257,0.1174,0.4083,69,46,23
+3376,"Kota Tegal","Jawa Tengah","Sheltered fringe",7.28,2,0.4919,0.0836,0.4083,72,47,25
+3213,"Subang","Jawa Barat","Lagging region",9.23,6,0.6236,0.216,0.4076,48,48,0
+3324,"Kendal","Jawa Tengah","Prosperous core",8.4,5,0.5675,0.16,0.4075,60,49,11
+3316,"Blora","Jawa Tengah","Lagging region",10.58,6,0.7148,0.3095,0.4053,32,50,-18
+3572,"Kota Blitar","Jawa Timur","Prosperous core",6.6,1,0.4459,0.0406,0.4053,78,51,27
+3302,"Banyumas","Jawa Tengah","Lagging region",11.15,7,0.7533,0.3568,0.3965,25,52,-27
+3575,"Kota Pasuruan","Jawa Timur","Prosperous core",6.18,1,0.4176,0.0293,0.3882,85,53,32
+3271,"Kota Bogor","Jawa Barat","Prosperous core",5.89,1,0.398,0.0122,0.3858,93,54,39
+3312,"Wonogiri","Jawa Tengah","Lagging region",9.59,6,0.6479,0.2636,0.3844,45,55,-10
+3215,"Karawang","Jawa Barat","Prosperous core",7.08,4,0.4784,0.0976,0.3807,74,56,18
+3506,"Kediri","Jawa Timur","Agglomeration shadow",9.81,6,0.6628,0.2824,0.3804,44,57,-13
+3214,"Purwakarta","Jawa Barat","Prosperous core",7.87,5,0.5317,0.1535,0.3782,67,58,9
+3571,"Kota Kediri","Jawa Timur","Sheltered fringe",6.04,1,0.4081,0.0351,0.373,90,59,31
+3206,"Tasikmalaya","Jawa Barat","Lagging region",10.15,6,0.6858,0.3143,0.3715,37,60,-23
+3602,"Lebak","Banten","Prosperous core",8.03,5,0.5425,0.1767,0.3659,65,61,4
+3509,"Jember","Jawa Timur","Lagging region",8.67,4,0.5858,0.2206,0.3651,55,62,-7
+3517,"Jombang","Jawa Timur","Sheltered fringe",8.36,6,0.5648,0.2023,0.3626,61,63,-2
+3211,"Sumedang","Jawa Barat","Lagging region",8.81,6,0.5952,0.234,0.3612,51,64,-13
+3371,"Kota Magelang","Jawa Tengah","Sheltered fringe",5.68,1,0.3838,0.0236,0.3602,97,65,32
+3673,"Kota Serang","Banten","Prosperous core",5.51,1,0.3723,0.0192,0.3531,98,66,32
+3375,"Kota Pekalongan","Jawa Tengah","Prosperous core",6.14,2,0.4148,0.0679,0.3469,87,67,20
+3279,"Kota Banjar","Jawa Barat","Prosperous core",5.73,2,0.3871,0.0509,0.3363,95,68,27
+3574,"Kota Probolinggo","Jawa Timur","Sheltered fringe",5.69,1,0.3844,0.05,0.3345,96,69,27
+3471,"Kota Yogyakarta","DI Yogyakarta","Sheltered fringe",6.14,2,0.4148,0.0824,0.3324,87,70,17
+3318,"Pati","Jawa Tengah","Sheltered fringe",8.24,5,0.5567,0.236,0.3207,62,71,-9
+3576,"Kota Mojokerto","Jawa Timur","Sheltered fringe",5.05,1,0.3412,0.0236,0.3176,100,72,28
+3209,"Cirebon","Jawa Barat","Lagging region",10.23,5,0.6912,0.3782,0.3129,36,73,-37
+3301,"Cilacap","Jawa Tengah","Lagging region",9.41,7,0.6358,0.3299,0.3059,46,74,-28
+3313,"Karanganyar","Jawa Tengah","Sheltered fringe",8.48,7,0.573,0.2689,0.304,59,75,-16
+3325,"Batang","Jawa Tengah","Sheltered fringe",7.79,5,0.5263,0.2247,0.3016,68,76,-8
+3319,"Kudus","Jawa Tengah","Sheltered fringe",6.59,4,0.4453,0.1518,0.2934,79,77,2
+3671,"Kota Tangerang","Banten","Prosperous core",5.19,4,0.3507,0.0582,0.2924,99,78,21
+3603,"Tangerang","Banten","Prosperous core",6.42,7,0.4338,0.1433,0.2905,80,79,1
+3505,"Blitar","Jawa Timur","Prosperous core",7.57,4,0.5115,0.2231,0.2884,71,80,-9
+3309,"Boyolali","Jawa Tengah","Agglomeration shadow",8.71,9,0.5885,0.3022,0.2863,54,81,-27
+3514,"Pasuruan","Jawa Timur","Prosperous core",8.21,6,0.5547,0.271,0.2837,63,82,-19
+3528,"Pamekasan","Jawa Timur","Lagging region",12.77,2,0.8628,0.5859,0.2769,16,83,-67
+3320,"Jepara","Jawa Tengah","Sheltered fringe",5.79,3,0.3912,0.1173,0.2739,94,84,10
+3373,"Kota Salatiga","Jawa Tengah","Prosperous core",4.2,1,0.2838,0.0169,0.2669,105,85,20
+3502,"Ponorogo","Jawa Timur","Lagging region",8.86,7,0.5986,0.3319,0.2668,50,86,-36
+3326,"Pekalongan","Jawa Tengah","Sheltered fringe",8.05,5,0.5439,0.2854,0.2585,64,87,-23
+3516,"Mojokerto","Jawa Timur","Agglomeration shadow",8.79,8,0.5939,0.3374,0.2565,52,88,-36
+3173,"Kota Jakarta Pusat","DKI Jakarta","Prosperous core",4.7,4,0.3176,0.065,0.2525,101,89,12
+3573,"Kota Malang","Jawa Timur","Sheltered fringe",3.85,1,0.2601,0.0209,0.2392,111,90,21
+3308,"Magelang","Jawa Tengah","Agglomeration shadow",9.9,9,0.6689,0.4416,0.2273,41,91,-50
+3510,"Banyuwangi","Jawa Timur","Sheltered fringe",6.13,3,0.4142,0.1917,0.2225,89,92,-3
+3507,"Malang","Jawa Timur","Lagging region",8.78,9,0.5932,0.3728,0.2204,53,93,-40
+3311,"Sukoharjo","Jawa Tengah","Sheltered fringe",6.83,6,0.4615,0.2438,0.2176,76,94,-18
+3672,"Kota Cilegon","Banten","Prosperous core",3.44,1,0.2324,0.0192,0.2132,115,95,20
+3275,"Kota Bekasi","Jawa Barat","Prosperous core",3.96,4,0.2676,0.0549,0.2127,107,96,11
+3202,"Sukabumi","Jawa Barat","Prosperous core",6.41,4,0.4331,0.2297,0.2034,81,97,-16
+3277,"Kota Cimahi","Jawa Barat","Prosperous core",4.2,3,0.2838,0.0808,0.203,105,98,7
+3577,"Kota Madiun","Jawa Timur","Sheltered fringe",3.89,2,0.2628,0.0698,0.193,110,99,11
+3504,"Tulungagung","Jawa Timur","Sheltered fringe",5.96,5,0.4027,0.2123,0.1904,92,100,-8
+3216,"Bekasi","Jawa Barat","Prosperous core",4.36,5,0.2946,0.1081,0.1865,104,101,3
+3328,"Tegal","Jawa Tengah","Sheltered fringe",6.16,4,0.4162,0.2342,0.182,86,102,-16
+3273,"Kota Bandung","Jawa Barat","Prosperous core",3.78,3,0.2554,0.0838,0.1716,113,103,10
+3204,"Bandung","Jawa Barat","Prosperous core",6.04,7,0.4081,0.2422,0.1659,90,104,-14
+3515,"Sidoarjo","Jawa Timur","Prosperous core",4.4,4,0.2973,0.1317,0.1656,103,105,-2
+3174,"Kota Jakarta Barat","DKI Jakarta","Prosperous core",3.91,5,0.2642,0.1068,0.1573,109,106,3
+3374,"Kota Semarang","Jawa Tengah","Prosperous core",3.8,3,0.2567,0.0995,0.1572,112,107,5
+3172,"Kota Jakarta Timur","DKI Jakarta","Prosperous core",3.94,6,0.2662,0.1092,0.157,108,108,0
+3579,"Kota Batu","Jawa Timur","Sheltered fringe",2.86,3,0.1932,0.0738,0.1194,117,109,8
+3171,"Kota Jakarta Selatan","DKI Jakarta","Prosperous core",3.23,6,0.2182,0.104,0.1142,116,110,6
+3322,"Semarang","Jawa Tengah","Prosperous core",6.3,8,0.4257,0.3144,0.1113,83,111,-28
+3207,"Ciamis","Jawa Barat","Sheltered fringe",7.19,7,0.4858,0.3831,0.1027,73,112,-39
+3404,"Sleman","DI Yogyakarta","Sheltered fringe",6.71,7,0.4534,0.3578,0.0956,77,113,-36
+3276,"Kota Depok","Jawa Barat","Prosperous core",2.31,5,0.1561,0.0693,0.0868,119,114,5
+3674,"Kota Tangerang Selatan","Banten","Prosperous core",2.39,5,0.1615,0.0811,0.0803,118,115,3
+3175,"Kota Jakarta Utara","DKI Jakarta","Prosperous core",6.33,6,0.4277,0.3597,0.068,82,116,-34
+3201,"Bogor","Jawa Barat","Prosperous core",6.26,11,0.423,0.3816,0.0413,84,117,-33
+3578,"Kota Surabaya","Jawa Timur","Sheltered fringe",3.56,3,0.2405,0.2726,-0.0321,114,118,-4
+3604,"Serang","Banten","Prosperous core",4.48,5,0.3027,0.3373,-0.0346,102,119,-17

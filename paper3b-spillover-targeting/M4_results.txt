@@ -1,0 +1,187 @@
+
+==============================================================================
+PAPER 3  -  M4  SPILLOVER MODEL
+==============================================================================
+run 2026-09-01 14:38:40.065103 | seed 20260826 | R 4.6.1 | spdep 1.4.2 | spatialreg 1.4.3
+response = log(Y); scope Java 119; primary W = augmented Queen
+weights: queen_aug 526 links / 1 comp / 0 isolate
+OLS log(Y)~X1+X2+X3: adj R2 0.5979 logLik -15.332 AIC 40.66 k 5
+
+==============================================================================
+1.  SPECIFICATION TESTS (RSerr=LMerr, RSlag=LMlag, adjRS*=robust, SARMA)
+==============================================================================
+      test       alias statistic df    p_value   verdict
+1    RSerr       LMerr   14.4364  1 0.00014497 reject H0
+2    RSlag       LMlag    6.6853  1 0.00972120 reject H0
+3 adjRSerr robustLMerr    8.0019  1 0.00467290 reject H0
+4 adjRSlag robustLMlag    0.2507  1 0.61656000      n.s.
+5    SARMA       SARMA   14.6872  2 0.00064673 reject H0
+robust LMerr p=0.00467 robust LMlag p=0.617 -> error/local channel (tree: SEM)
+LM tree does not test lag-of-X; Durbin family still estimated (see M3b correlogram)
+
+==============================================================================
+2.  CANDIDATE MODELS (ML, log(Y) ~ X1+X2+X3, queen_aug)
+==============================================================================
+  model k  logLik   AIC spatial_par estimate
+1   OLS 5 -15.332 40.66           -       NA
+2   SAR 6 -11.520 35.04         rho   0.2662
+3   SEM 6  -5.989 23.98      lambda   0.5407
+4   SDM 9  -1.019 20.04         rho   0.4176
+5  SDEM 9  -1.268 20.54      lambda   0.4250
+[OLS] AIC 40.66
+            Estimate Std. Error   t value Pr(>|t|)
+(Intercept)  5.38855    0.95385   5.64928  0.00000
+X1          -0.02949    0.02220  -1.32823  0.18673
+X2          -0.05705    0.00567 -10.06849  0.00000
+X3           0.01643    0.00861   1.90729  0.05898
+[SAR] AIC 35.04 rho=0.2662 (Wald p 0.00169)
+            Estimate Std. Error  z value Pr(>|z|)
+(Intercept)  4.88472    0.93778  5.20879  0.00000
+X1          -0.02196    0.02100 -1.04570  0.29570
+X2          -0.05233    0.00581 -9.00525  0.00000
+X3           0.01008    0.00824  1.22258  0.22149
+[SEM] AIC 23.98 lambda=0.5407 (Wald p 9.57e-10)
+            Estimate Std. Error   z value Pr(>|z|)
+(Intercept)  6.88016    0.96164   7.15463  0.00000
+X1          -0.01247    0.02297  -0.54297  0.58715
+X2          -0.06502    0.00609 -10.68319  0.00000
+X3           0.00313    0.00861   0.36319  0.71646
+[SDM] AIC 20.04 rho=0.4176 (Wald p 2.45e-05)
+            Estimate Std. Error   z value Pr(>|z|)
+(Intercept)  1.90304    1.38598   1.37306  0.16973
+X1           0.01084    0.02430   0.44630  0.65538
+X2          -0.07024    0.00637 -11.01968  0.00000
+X3          -0.00102    0.00869  -0.11739  0.90655
+lag.X1      -0.01715    0.03438  -0.49872  0.61798
+lag.X2       0.04534    0.01124   4.03365  0.00005
+lag.X3       0.01834    0.01210   1.51563  0.12961
+[SDEM] AIC 20.54 lambda=0.425 (Wald p 2e-05)
+            Estimate Std. Error   z value Pr(>|z|)
+(Intercept)  3.65673    1.81820   2.01118  0.04431
+X1           0.00613    0.02352   0.26069  0.79433
+X2          -0.06757    0.00600 -11.26700  0.00000
+X3           0.00239    0.00851   0.28123  0.77854
+lag.X1      -0.01537    0.03671  -0.41877  0.67538
+lag.X2       0.02144    0.01109   1.93275  0.05327
+lag.X3       0.02537    0.01311   1.93475  0.05302
+
+==============================================================================
+3.  MODEL CHOICE
+==============================================================================
+                                        comparison   chisq df    p_value
+1                      SDM vs SAR  (H0: theta = 0) 21.0025  3 1.0515e-04
+2 SDM vs SEM  (H0: common factor, theta=-rho*beta)  9.9403  3 1.9080e-02
+3                      SDEM vs SEM (H0: theta = 0)  9.4408  3 2.3970e-02
+4                                       SDM vs OLS 28.6270  4 9.3069e-06
+5                                      SDEM vs OLS 28.1274  4 1.1753e-05
+Hausman on SEM: chisq 16.5926 df 4 p 0.0023188 -> REJECT (SEM inadequate)
+common-factor rejected? TRUE | theta!=0 SDMvsSAR TRUE SDEMvsSEM TRUE | rho(SDM) sig TRUE (p 2.45e-05) | lowest-AIC SDM
+>>> CHOSEN MODEL: SDM  (tests and AIC agree)
+SDM vs SDEM AIC gap 0.5 - SDEM stays a defensible alternative
+
+==============================================================================
+4.  THETA TEST (SDM)
+==============================================================================
+  term estimate std_error z_value    p_value
+1 W.X1 -0.01715   0.03438  -0.499 6.1798e-01
+2 W.X2  0.04534   0.01124   4.034 5.4916e-05
+3 W.X3  0.01834   0.01210   1.516 1.2961e-01
+W.X1 = neighbours' TPT ; W.X2 = neighbours' HDI ; W.X3 = neighbours' TPAK
+significant theta: W.X2 | rho = 0.4176 (Wald p 2.45e-05)
+scale-mismatch hypothesis (W.X1/W.X3 sig + modest rho): NOT supported (only W.X2 sig, rho strong)
+wrote M4_coefficients.csv
+
+==============================================================================
+5.  IMPACT DECOMPOSITION (trW type='mult', impacts R=1000)
+==============================================================================
+  variable   effect semi_elasticity pct_per_unit   p_value
+1       X1   DIRECT        0.009412       0.9412 0.6781600
+2       X2   DIRECT       -0.068424      -6.8424 0.0000000
+3       X3   DIRECT        0.001011       0.1011 0.8454800
+4       X1 INDIRECT       -0.020236      -2.0236 0.6737600
+5       X2 INDIRECT        0.025679       2.5679 0.0779490
+6       X3 INDIRECT        0.028723       2.8723 0.1275700
+7       X1    TOTAL       -0.010823      -1.0823 0.8261000
+8       X2    TOTAL       -0.042745      -4.2745 0.0027221
+9       X3    TOTAL        0.029734       2.9734 0.1356100
+significant DIRECT: X2 | INDIRECT: NONE | TOTAL: X2
+SDEM impacts under queen_aug (close AIC rival):
+  variable   effect semi_elasticity pct_per_unit    p_value
+1       X1   DIRECT        0.006131       0.6131 7.9433e-01
+2       X2   DIRECT       -0.067565      -6.7565 0.0000e+00
+3       X3   DIRECT        0.002393       0.2393 7.7854e-01
+4       X1 INDIRECT       -0.015371      -1.5371 6.7538e-01
+5       X2 INDIRECT        0.021443       2.1443 5.3267e-02
+6       X3 INDIRECT        0.025368       2.5368 5.3021e-02
+7       X1    TOTAL       -0.009241      -0.9241 8.1588e-01
+8       X2    TOTAL       -0.046122      -4.6122 2.7813e-05
+9       X3    TOTAL        0.027761       2.7761 7.6009e-02
+
+==============================================================================
+6.  RESIDUAL SPATIAL DEPENDENCE
+==============================================================================
+SDM residuals: Moran's I -0.0038 perm p 0.4685 | OLS resid I here 0.2601 (baseline 0.266)
+=> residual spatial dependence absorbed (p >= 0.05)
+
+==============================================================================
+7.  ROBUSTNESS (SDM under bare Queen, kNN4)
+==============================================================================
+[queen] rho=0.2621 AIC 26.86
+  variable   effect semi_elasticity pct_per_unit    p_value
+1       X1   DIRECT        0.009406       0.9406 7.1283e-01
+2       X2   DIRECT       -0.057865      -5.7865 0.0000e+00
+3       X3   DIRECT        0.007368       0.7368 3.7893e-01
+4       X1 INDIRECT       -0.115227     -11.5227 1.0454e-03
+5       X2 INDIRECT       -0.010692      -1.0692 2.2880e-01
+6       X3 INDIRECT       -0.014827      -1.4827 1.4147e-01
+7       X1    TOTAL       -0.105822     -10.5822 3.6781e-03
+8       X2    TOTAL       -0.068556      -6.8556 1.4466e-12
+9       X3    TOTAL       -0.007459      -0.7459 5.4712e-01
+[knn4] rho=0.4644 AIC 23.27
+  variable   effect semi_elasticity pct_per_unit    p_value
+1       X1   DIRECT        0.013324       1.3324 0.55212000
+2       X2   DIRECT       -0.067107      -6.7107 0.00000000
+3       X3   DIRECT        0.005129       0.5129 0.49838000
+4       X1 INDIRECT       -0.071148      -7.1148 0.21673000
+5       X2 INDIRECT        0.010092       1.0092 0.49919000
+6       X3 INDIRECT        0.013827       1.3827 0.56567000
+7       X1    TOTAL       -0.057824      -5.7824 0.32963000
+8       X2    TOTAL       -0.057015      -5.7015 0.00026828
+9       X3    TOTAL        0.018957       1.8957 0.43866000
+  variable   effect queen_aug     queen      knn4 p_queen_aug    p_queen
+1       X1   DIRECT  0.009412  0.009406  0.013324   0.6781600 7.1283e-01
+4       X2   DIRECT -0.068424 -0.057865 -0.067107   0.0000000 0.0000e+00
+7       X3   DIRECT  0.001011  0.007368  0.005129   0.8454800 3.7893e-01
+2       X1 INDIRECT -0.020236 -0.115227 -0.071148   0.6737600 1.0454e-03
+5       X2 INDIRECT  0.025679 -0.010692  0.010092   0.0779490 2.2880e-01
+8       X3 INDIRECT  0.028723 -0.014827  0.013827   0.1275700 1.4147e-01
+3       X1    TOTAL -0.010823 -0.105822 -0.057824   0.8261000 3.6781e-03
+6       X2    TOTAL -0.042745 -0.068556 -0.057015   0.0027221 1.4466e-12
+9       X3    TOTAL  0.029734 -0.007459  0.018957   0.1356100 5.4712e-01
+      p_knn4
+1 0.55212000
+4 0.00000000
+7 0.49838000
+2 0.21673000
+5 0.49919000
+8 0.56567000
+3 0.32963000
+6 0.00026828
+9 0.43866000
+SIGN FLIPS across schemes: 
+  variable   effect queen_aug     queen     knn4
+5       X2 INDIRECT  0.025679 -0.010692 0.010092
+8       X3 INDIRECT  0.028723 -0.014827 0.013827
+9       X3    TOTAL  0.029734 -0.007459 0.018957
+SIGNIFICANCE CHANGES across schemes: 
+  variable   effect p_queen_aug   p_queen  p_knn4
+2       X1 INDIRECT     0.67376 0.0010454 0.21673
+3       X1    TOTAL     0.82610 0.0036781 0.32963
+stable in sign AND significance across all three schemes: DIRECT X2
+
+==============================================================================
+M4 COMPLETE - STOP
+==============================================================================
+chosen SDM | resid Moran's I -0.0038 p 0.468
+only significant theta = W.X2; no INDIRECT effect significant; only DIRECT HDI robust
+=> M6 'rank by indirect effect' needs rethinking (see spatial_M4b.R)
